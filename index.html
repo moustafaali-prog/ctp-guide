@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>منصة التدريب السريري — دليل الاستخدام الكامل</title>
+<style>
+:root{--navy:#0B2B44;--navy2:#123A5B;--blue:#1B5A87;--gold:#E3C459;--gold2:#F3E4B0;--ink:#16303F;--mut:#5C7286;--line:#E2E9EF;--bg:#F3F6FA;--ok:#1E8E4E;--warn:#C07A12;--err:#C0392B}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',Tahoma,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.95}
+.wrap{max-width:1000px;margin:0 auto;padding:24px 18px 80px}
+.cover{background:linear-gradient(135deg,#0B2B44,#1B5A87);color:#fff;border-radius:22px;padding:38px 32px;margin-bottom:26px;position:relative;overflow:hidden}
+.cover::after{content:"";position:absolute;inset:auto -40px -60px auto;width:260px;height:260px;background:radial-gradient(circle,rgba(227,196,89,.35),transparent 70%)}
+.cover .logo{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 14px;border-radius:999px;font-size:13px;margin-bottom:16px}
+.cover h1{margin:0 0 6px;font-size:30px;letter-spacing:.2px}
+.cover p{margin:5px 0;opacity:.94;font-size:14.5px;max-width:760px}
+.cover .tag{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.cover .tag span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);padding:4px 12px;border-radius:999px;font-size:12.5px}
+h2{color:var(--navy);font-size:21.5px;margin:38px 0 12px;padding-bottom:8px;border-bottom:3px solid var(--gold)}
+h3{color:var(--blue);font-size:17px;margin:24px 0 8px}
+h4{color:var(--navy2);font-size:15px;margin:18px 0 6px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px;box-shadow:0 2px 10px rgba(11,43,68,.05)}
+.card b.lbl{color:var(--navy)}
+.note{background:#FFF8E3;border:1px solid #EADCA8;border-right:5px solid var(--warn);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:14px}
+.ok{background:#EAF6EE;border:1px solid #BFE3CD;border-right:5px solid var(--ok);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:14px}
+.err{background:#FBEEEC;border:1px solid #F0C9C4;border-right:5px solid var(--err);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:14px}
+.fix{background:#EEF3FB;border:1px solid #C9D7EE;border-right:5px solid var(--blue);border-radius:10px;padding:12px 16px;margin:12px 0;font-size:14px}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:right;vertical-align:top}
+th{background:#EDF3F8;color:var(--navy);font-weight:700}
+tbody tr:nth-child(even){background:#FAFCFE}
+code{background:#E9EFF5;border:1px solid var(--line);border-radius:7px;padding:1px 9px;font-family:Consolas,monospace;font-size:13px;direction:ltr;display:inline-block}
+ol,ul{padding-right:20px;margin:8px 0}
+li{margin:5px 0}
+.steps{counter-reset:s;list-style:none;padding-right:0}
+.steps>li{counter-increment:s;position:relative;padding:9px 46px 9px 0;border-bottom:1px dashed var(--line)}
+.steps>li:last-child{border-bottom:0}
+.steps>li::before{content:counter(s);position:absolute;right:0;top:9px;width:30px;height:30px;background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13.5px}
+.toc{columns:2;column-gap:26px}
+.toc a{color:var(--blue);text-decoration:none;display:block;padding:4px 0;font-size:14px;break-inside:avoid}
+.toc a:hover{text-decoration:underline}
+.pill{display:inline-block;padding:1px 12px;border-radius:999px;font-size:12px;font-weight:700}
+.p-stu{background:#DCEAF7;color:#14557E}
+.p-sup{background:#FCEFD8;color:#7A5310}
+.p-adm{background:#E3F2EA;color:#12613B}
+kbd{background:#10283B;color:#fff;border-radius:6px;padding:2px 10px;font-family:inherit;font-size:12.5px}
+.shot{margin:16px 0}
+.shot .cap{font-size:12.5px;color:var(--mut);margin-top:6px;text-align:center}
+.shot img{display:block;width:100%;border:1px solid var(--line);border-radius:12px;background:#fff}
+.shotbox{max-height:620px;overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.shotbox img{display:block;width:100%;border:0;border-radius:0}
+.shot.small img{width:auto;max-width:100%;margin:0 auto}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.grid2{grid-template-columns:1fr}.toc{columns:1}}
+.footer{color:var(--mut);font-size:12px;margin-top:44px;border-top:1px solid var(--line);padding-top:14px;text-align:center}
+@media print{.card{box-shadow:none;break-inside:avoid}h2{break-after:avoid}.shotbox{max-height:none;overflow:visible}.footer{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="cover">
+  <div class="logo">منصة التدريب السريري — تقارير تمريض الأطفال</div>
+  <h1>دليل الاستخدام الكامل</h1>
+  <p>دليل عملي يشرح المنصة كما تعمل فعليًا. كل شاشة مصوّرة هنا لقطة حقيقية من المنصة أثناء العمل.</p>
+  <p>محور هذا الدليل: <b>الطالب</b> ثم <b>المشرف</b>، مع إشارة موجزة إلى شاشات الإدارة.</p>
+  <div class="tag"><span>الطالب</span><span>المشرف</span><span>التقرير الموجّه</span><span>الحالات الـ19</span><span>الدرجات والحضور</span><span>التشابه</span><span>العمل دون اتصال</span><span>إشارة مختصرة للإدارة</span></div>
+</div>
+
+<div class="card">
+  <b class="lbl">محتويات الدليل</b>
+  <div class="toc">
+    <a href="#s1">1) ما هي المنصة ولماذا وُجدت</a>
+    <a href="#s2">2) وجهان على الجهاز نفسه: التطبيق والخادم</a>
+    <a href="#s3">3) الأدوار الثلاثة ونطاق الرؤية</a>
+    <a href="#s4">4) أول تشغيل وضبط رقم المنصة</a>
+    <a href="#s5">5) الدخول الموحّد: اسم واحد ورقم سري واحد</a>
+    <a href="#s6">6) واجهة الطالب: الصفحة الرئيسية والأسابيع</a>
+    <a href="#s7">7) التقرير الموجّه خطوة بخطوة</a>
+    <a href="#s8">8) الأقسام الأحد عشر وأوزانها</a>
+    <a href="#s9">9) الحالات السريرية المرجعية (19 حالة)</a>
+    <a href="#s10">10) التقرير النهائي والتقديرات والدرجات</a>
+    <a href="#s11">11) التسليم دون اتصال (من جهة الطالب)</a>
+    <a href="#s12">12) واجهة المشرف: الشاشات العشر</a>
+    <a href="#s13">13) الحضور ووضعيات الطالب</a>
+    <a href="#s14">14) كشف التشابه بين التقارير</a>
+    <a href="#s15">15) التحليل ونقاط الضعف وتحليل الأسئلة</a>
+    <a href="#s16">16) مراجعة التقرير وتسجيل الدرجات العملية</a>
+    <a href="#s17">17) الإشعارات وشريط التبليغ</a>
+    <a href="#s18">18) الإدارة والنسخ الاحتياطي (إشارة مختصرة)</a>
+    <a href="#s19">19) الحارس الدائم وسير العمل</a>
+    <a href="#s20">20) أسئلة شائعة وحل مشكلات</a>
+    <a href="#s21">21) مصطلحات سريعة</a>
+  </div>
+</div>
+
+<!-- 1 -->
+<h2 id="s1">1) ما هي المنصة ولماذا وُجدت</h2>
+<div class="card">
+  <p>المنصة تدرّب طلاب التمريض (حقل الأطفال) على كتابة <b>التقرير اليومي للطفل</b> بشكل موجَّه ومقيَّم، أسبوعًا بعد أسبوع خلال الفصل العملي.</p>
+  <p>الطالب لا يكتب من فراغ: تعرض المنصة <b>حالة سريرية مرجعية</b> (طفل بأعراض وفحوصات وخطة تمريضية)، وتقوده عبر <b>أحد عشر قسمًا</b> بالترتيب، ثم تحسب درجة من <b>100</b> حسب وزن كل قسم. المشرف يرى النتائج ويقيّمها ويترك ملاحظته، والإدارة تدير الإعدادات والنسخ الاحتياطي.</p>
+  <div class="ok"><b>بجملة واحدة:</b> مختبر تدريبي يحوّل المعرفة النظرية إلى تقرير تمريضي منظم للأطفال، ويمنح كل أسبوع عملي درجة موثّقة.</div>
+</div>
+
+<!-- 2 -->
+<h2 id="s2">2) وجهان على الجهاز نفسه: التطبيق والخادم</h2>
+<div class="card">
+  <table>
+    <tr><th>الوجه</th><th>المنفذ</th><th>مهمته</th></tr>
+    <tr><td>التطبيق (واجهة المستخدم)</td><td><code>http://127.0.0.1:9080/</code></td><td>الشاشة التي تفتحها في المتصفح: دخول الطالب والمشرف، كتابة التقرير، عرض النتائج.</td></tr>
+    <tr><td>الخادم المركزي (API)</td><td><code>http://127.0.0.1:8080/</code></td><td>خدمة داخلية تحفظ الحالة وتوفّر المزامنة بين الأجهزة، وتُنشئ النسخ الاحتياطية تلقائيًا.</td></tr>
+  </table>
+  <div class="note">المنصة <b>تعمل كاملة دون اتصال</b>: يُحفظ كل شيء على الجهاز (قاعدة بيانات محلية). الخادم المركزي إضافة اختيارية للمزامنة والنسخ الاحتياطي التلقائي، وليس شرطًا لكتابة التقرير أو مراجعته.</div>
+</div>
+
+<!-- 3 -->
+<h2 id="s3">3) الأدوار الثلاثة ونطاق الرؤية</h2>
+<div class="card">
+  <table>
+    <tr><th>الدور</th><th>كيف يدخل</th><th>ماذا يرى</th></tr>
+    <tr><td>الطالب <span class="pill p-stu">Student</span></td><td>اسمه من الكشف + رقمه السري</td><td>صفحته وأسابيعه وتقاريره ودرجاته وملاحظات المشرف <b>الخاصة به فقط</b>.</td></tr>
+    <tr><td>المشرف <span class="pill p-sup">Supervisor</span></td><td>اسمه من قائمة الكادر + رقمه السري</td><td>طلاب <b>نطاقه فقط</b> (المجموعة أو المستشفى أو الفترة التي يشرف عليها): درجاتهم وحضورهم وتقاريرهم وإشعاراتهم.</td></tr>
+    <tr><td>المدير <span class="pill p-adm">Administrator</span></td><td>رابط صغير «Administrator sign-in» داخل شاشة الدخول — ويظهر <b>على جهاز الاستضافة فقط</b></td><td>كل الطلاب والإعدادات والأوزان والكادر والنسخ الاحتياطي.</td></tr>
+  </table>
+  <div class="note">الدور <b>لا يُختار يدويًا</b>: المنصة تعرف دورك من اسمك في الكشف. لذلك لا يمكن لطالب أن «ينتحل» صفة مشرف، ولا أن يصل إلى بوابة الإدارة أصلًا. بوابة الإدارة تظهر فقط على الجهاز الذي يشغّل المنصة، وتطلب رقمًا سريًا خاصًا للمنصة. وحساب الطالب أو المشرف غير مربوط بجهاز معيّن، فيمكن الدخول من أي جهاز باسمك ورقمك السري.</div>
+</div>
+
+<!-- 4 -->
+<h2 id="s4">4) أول تشغيل وضبط رقم المنصة</h2>
+<div class="card">
+  <p>على جهاز جديد فارغ، تظهر شاشة الدخول بالشكل التالي (حقلا الإدخال فقط: الاسم والرقم السري):</p>
+  <div class="shot"><img src="guide_assets/01_login.png" alt="شاشة الدخول"><div class="cap">شاشة الدخول الموحّدة — خانة «Your name» (بحث بالاسم) وخانة «Your secret PIN» (6 أرقام).</div></div>
+  <p>قبل أي دخول إداري، يجب ضبط <b>رقم المنصة السري</b>. اضغط رابط «Administrator sign-in» أسفل البطاقة (يظهر على جهاز الاستضافة فقط)، فتظهر نافذة إعداد الرقم:</p>
+  <div class="shot small"><img src="guide_assets/02_admin_pin_modal.png" alt="نافذة ضبط رقم المنصة"><div class="cap">نافذة «Platform PIN» عند أول تشغيل: تكتب الرقم وتؤكّده ثم «Set PIN and continue».</div></div>
+  <div class="note">الرقم يجب أن يكون <b>6 أرقام على الأقل</b>، ولا يجوز أن يكون من الأرقام الشائعة المعروفة. لا توجد قيمة افتراضية جاهزة — أنت من يحدّدها في أول مرة.</div>
+</div>
+
+<!-- 5 -->
+<h2 id="s5">5) الدخول الموحّد: اسم واحد ورقم سري واحد</h2>
+<div class="card">
+  <p>كل المستخدمين يدخلون من الشاشة نفسها. دورك يُحدَّد تلقائيًا من الكشف (طالب أو مشرف).</p>
+  <h3>خطوات الدخول</h4>
+  <ol class="steps">
+    <li>في خانة «Your name» اكتب حرفًا أو اثنين من اسمك؛ تظهر قائمة منسدلة بالأسماء المطابقة (يظهر مع كل اسم: طالب أم مشرف). اختر اسمك.</li>
+    <li>اكتب رقمك السري المكوّن من <b>6 أرقام</b> في خانة «Your secret PIN».</li>
+    <li>اضغط «Enter». المنصة تتعرّف على دورك تلقائيًا وتفتح صفحتك.</li>
+  </ol>
+  <h3>أول دخول للمشرف: يضبط رقمه بنفسه</h3>
+  <p>عندما يمنح المدير للمشرف رقمًا مبدئيًا، يُجبر المشرف عند أول دخول على تعيين رقم سري خاص به لا يعرفه أحد غيره:</p>
+  <div class="shot small"><img src="guide_assets/17_forced_pin_modal.png" alt="نافذة تعيين الرقم السري للمشرف"><div class="cap">نافذة «Set your own PIN» الإلزامية عند أول دخول للمشرف — بلا زر إغلاق، مع خيار «Log out instead».</div></div>
+  <div class="err"><b>تنبيه:</b> لا يوجد رقم سري افتراضي مشترك، والأرقام الشائعة (2468، 1234، 0000، 1111، 4321) مرفوضة عند التعيين. رقم كل شخص خاص به، والمنصة تحاول حماية الحساب من المحاولات المتكررة الخاطئة.</div>
+</div>
+
+<!-- 5b admin door -->
+<h3>ماذا لو نسي شخص رقمه؟</h3>
+<div class="card">
+  <ul>
+    <li><b>الطالب:</b> يسأل مشرفه؛ والمشرف/الإدارة يمنح رقمًا جديدًا من صفحة الكادر أو الإعدادات.</li>
+    <li><b>المشرف:</b> يفتح «إعدادات المشرف» من زر الترس أعلى الصفحة ليغيّر رقمه في أي وقت على هذا الجهاز.</li>
+    <li><b>المدير:</b> يعيد ضبط رقم المنصة من شاشات الإدارة على جهاز الاستضافة.</li>
+  </ul>
+</div>
+
+<!-- 6 -->
+<h2 id="s6">6) واجهة الطالب: الصفحة الرئيسية والأسابيع</h2>
+<div class="card">
+  <p>بعد دخول الطالب تظهر صفحته الرئيسية: بياناته، وبطاقات الأسابيع، وحالة كل أسبوع.</p>
+  <div class="shotbox"><img src="guide_assets/03_student_home.png" alt="الصفحة الرئيسية للطالب"><div class="cap" style="position:sticky;bottom:0;background:#fff">الصفحة الرئيسية للطالب: اسمه والمستشفى والمجموعة والفترة، وشبكة الأسابيع بحالتها.</div></div>
+  <p>كل أسبوع يحمل حالة واضحة:</p>
+  <ul>
+    <li><b>متاح (Open):</b> يمكنك بدء التقرير الآن.</li>
+    <li><b>مُسلَّم/مُغلق:</b> تم تقديم تقرير ذلك الأسبوع، ويظهر معه الدرجة والمراجعة.</li>
+    <li><b>لم يُفتح بعد:</b> يفتحه المشرف في وقته.</li>
+  </ul>
+  <div class="ok">إذا كان هناك «تذكرة/تكليف» بموقع محدد (Ticket)، تظهر لك بوضوح في أعلى الصفحة عند الدخول.</div>
+</div>
+
+<!-- 7 -->
+<h2 id="s7">7) التقرير الموجّه خطوة بخطوة</h2>
+<div class="card">
+  <p>عند فتح أسبوع، تبدأ من <b>قسم المعلومات التعريفية</b>. في هذا القسم تختار التشخيص الذي لاحظته على الحالة. بعد اختياره تظهر بطاقة الحالة المرجعية الكاملة (وصف الطفل والسيناريو والعلامات) لترافقك في باقي الأقسام.</p>
+  <div class="shot"><img src="guide_assets/04_wizard_station.png" alt="بداية التقرير الموجّه"><div class="cap">بداية التقرير: قسم المعلومات التعريفية قبل تأكيد التشخيص.</div></div>
+  <div class="shot"><img src="guide_assets/04b_wizard_casecard.png" alt="قسم بعد ظهور بطاقة الحالة"><div class="cap">بعد تأكيد التشخيص: تظهر بطاقة الحالة المرجعية أعلى كل قسم، وتحتها أسئلة القسم.</div></div>
+  <h3>كيف يُبنى التقرير</h3>
+  <ol class="steps">
+    <li>أجب عن أسئلة القسم الحالي. الأسئلة أنواع: اختيار واحد، اختيار متعدد، ترتيب، قيمة قياس (رقمية) مع تصنيفها (أقل/داخل/أعلى المدى المرجعي)، أو كتابة حرة قصيرة.</li>
+    <li>اضغط «Check section &amp; score» لقفل القسم — فيتحوّل إلى سجل مؤكَّد يعرض إجابتك والتغذية الراجعة.</li>
+    <li>انتقل للقسم التالي عبر «Next». يمكنك الرجوع بـ«Previous» في أي وقت.</li>
+    <li>عند آخر قسم، يظهر زر «Assemble final report» لتجميع التقرير النهائي.</li>
+  </ol>
+  <div class="ok"><b>حفظ تلقائي:</b> يمكنك مغادرة الصفحة في أي وقت؛ المنصة تحفظ مسودتك وتعيدك إلى حيث توقفت حتى بعد إغلاق المتصفح.</div>
+  <div class="note"><b>التحقق الذاتي:</b> في نهاية التقرير توجد أسئلة تحقّق ذاتي (اختيار من متعدد) على الحالة، لتتأكد من فهمك قبل التسليم.</div>
+</div>
+
+<!-- 8 -->
+<h2 id="s8">8) الأقسام الأحد عشر وأوزانها</h2>
+<div class="card">
+  <p>التقرير مبني من 11 قسمًا، لكل قسم وزن، ومجموع الأوزان <b>100 بالضبط</b>. الأوزان الافتراضية:</p>
+  <table>
+    <tr><th>#</th><th>القسم</th><th>العنوان داخل المنصة</th><th>الوزن</th></tr>
+    <tr><td>1</td><td>المعلومات التعريفية</td><td>Identifying Information</td><td>8</td></tr>
+    <tr><td>2</td><td>الشكوى الرئيسية</td><td>Chief Complaint</td><td>5</td></tr>
+    <tr><td>3</td><td>العلامات الحيوية</td><td>Vital Signs</td><td>12</td></tr>
+    <tr><td>4</td><td>القياسات الأنثروبومترية</td><td>Anthropometrics</td><td>8</td></tr>
+    <tr><td>5</td><td>تاريخ المرض الحالي</td><td>History of Present Illness</td><td>10</td></tr>
+    <tr><td>6</td><td>التاريخ المرضي السابق</td><td>Past History</td><td>5</td></tr>
+    <tr><td>7</td><td>التثقيف الصحي</td><td>Health Promotion (A–E)</td><td>8</td></tr>
+    <tr><td>8</td><td>الأدوية الحالية</td><td>Current Medication</td><td>8</td></tr>
+    <tr><td>9</td><td>الفحص السريري</td><td>Physical Examination</td><td>14</td></tr>
+    <tr><td>10</td><td>الفحوصات المختبرية والتشخيصية</td><td>Laboratory &amp; Diagnostic Findings</td><td>10</td></tr>
+    <tr><td>11</td><td>خطة التمريض (تشخيصان كاملان)</td><td>Nursing Care Plan (2 Diagnoses)</td><td>12</td></tr>
+    <tr><td colspan="3"><b>المجموع</b></td><td><b>100</b></td></tr>
+  </table>
+  <div class="note">يمكن للمدير تعديل الأوزان، لكن المجموع يبقى <b>100 إجباريًا</b> — المنصة ترفض الحفظ إذا لم يكن المجموع 100 بالضبط. أي تعديل في الأوزان يُحسب فورًا على التقارير.</div>
+</div>
+
+<!-- 8 -->
+<h2 id="s9">9) الحالات السريرية المرجعية (19 حالة)</h2>
+<div class="card">
+  <p>تحتوي المنصة <b>تسع عشرة حالة</b> موزعة على أربعة أجنحة، لكل حالة طفلها وسيناريوها وعلاماتها وفحوصاتها وخطتها التمريضية:</p>
+  <table>
+    <tr><th>الجناح</th><th>الحالة</th><th>الطفل</th></tr>
+    <tr><td rowspan="2"><b>العناية (NICU)</b></td><td>اليرقان الوليدي (Neonatal Jaundice)</td><td>نورة — أنثى، 3 أيام</td></tr>
+    <tr><td>متلازمة الضائقة التنفسية (RDS)</td><td>ميري — أنثى، 4 أيام، خديج</td></tr>
+    <tr><td rowspan="3"><b>جناح الدم (Blood)</b></td><td>الثلاسيميا الكبرى (β-Thalassemia Major)</td><td>علي — ذكر، 3 سنوات</td></tr>
+    <tr><td>اللوكيميا اللمفاوية الحادة (ALL)</td><td>مارك — ذكر، 5 سنوات</td></tr>
+    <tr><td>الهيموفيليا A (Hemophilia A)</td><td>بريان — ذكر، 18 شهرًا</td></tr>
+    <tr><td rowspan="11"><b>الجناح الباطني (Medical)</b></td><td>الالتهاب الرئوي الجرثومي (Pneumonia)</td><td>سارة — أنثى، 14 شهرًا</td></tr>
+    <tr><td>الإسهال والتقيؤ والجفاف المتوسط</td><td>حسين — ذكر، 9 أشهر</td></tr>
+    <tr><td>فقر الدم بعوز الحديد (Iron-Deficiency Anemia)</td><td>سارة علي — أنثى، 18 شهرًا</td></tr>
+    <tr><td>التهاب القصيبات الحاد (Bronchiolitis / RSV)</td><td>أحمد — ذكر، 5 أشهر</td></tr>
+    <tr><td>التهاب الأذن الوسطى الحاد (Otitis Media)</td><td>زينب — أنثى، سنتان</td></tr>
+    <tr><td>التهاب المسالك البولية / الحويضة (UTI)</td><td>مريم — أنثى، 3 سنوات</td></tr>
+    <tr><td>المتلازمة الكلائية (Nephrotic Syndrome)</td><td>عمر — ذكر، 4 سنوات</td></tr>
+    <tr><td>الكساح بعوز فيتامين د (Rickets)</td><td>فاطمة — أنثى، 9 أشهر</td></tr>
+    <tr><td>التهاب السحايا الجرثومي (Meningitis)</td><td>حسن — ذكر، 10 أشهر</td></tr>
+    <tr><td>عيب الحاجز البطيني (VSD)</td><td>ليث — ذكر، 4 أشهر</td></tr>
+    <tr><td>التهاب اللوزتين العقدي (Tonsillitis)</td><td>نور — أنثى، سنتان</td></tr>
+    <tr><td rowspan="3"><b>الجناح الجراحي (Surgical)</b></td><td>داء هيرشبرنغ (Hirschsprung)</td><td>أمير — ذكر، يومان</td></tr>
+    <tr><td>تضيّق البواب الضخامي (Pyloric Stenosis)</td><td>يوسف — ذكر، 4 أسابيع</td></tr>
+    <tr><td>الانغلاف المعوي (Intussusception)</td><td>آدم — ذكر، 4 أشهر</td></tr>
+  </table>
+  <p>هذه الحالات هي «المرشد» الذي يوجّه الطالب في كل قسم إلى النتيجة الصحيحة، مع بيانات حقيقية للطفل (علامات حيوية، قياسات، فحوصات، خطة تمريضية كاملة).</p>
+</div>
+
+<!-- 10 -->
+<h2 id="s10">10) التقرير النهائي والتقديرات والدرجات</h2>
+<div class="card">
+  <p>عند تجميع التقرير النهائي تظهر لك صفحة تمزج بين بطاقة الدرجة والتقرير الرسمي المُجهّز للطباعة:</p>
+  <div class="shotbox"><img src="guide_assets/05_student_report.png" alt="صفحة التقرير النهائي للطالب"><div class="cap" style="position:sticky;bottom:0;background:#fff">صفحة التقرير النهائي: دائرة الدرجة من 100، أشرطة تقدّم الأقسام، ثم التقرير الرسمي كاملًا.</div></div>
+  <h3>أزرار هذه الصفحة</h3>
+  <ul>
+    <li><b>Submit report to supervisor</b> — تقديم التقرير (يُقفل الأسبوع ويصل للمشرف).</li>
+    <li><b>Export for offline submission (file)</b> — تصدير ملف تسليم دون اتصال.</li>
+    <li><b>Student PDF (No Evaluation)</b> — نسخة PDF للطالب بلا تقييم المشرف.</li>
+    <li><b>Supervisor PDF (With Evaluation)</b> — نسخة PDF تتضمّن تقييم المشرف.</li>
+  </ul>
+  <h3>كيف تُحسب الدرجة والتقدير</h3>
+  <p>لكل قسم درجة من وزنه، ومجموعها الدرجة النهائية من 100. التقدير الحرفي:</p>
+  <table>
+    <tr><th>التقدير</th><th>الوصف</th><th>المدى</th></tr>
+    <tr><td>A</td><td>Excellent</td><td>90 – 100</td></tr>
+    <tr><td>B</td><td>Very Good</td><td>80 – 89.9</td></tr>
+    <tr><td>C</td><td>Good</td><td>70 – 79.9</td></tr>
+    <tr><td>D</td><td>Acceptable</td><td>60 – 69.9</td></tr>
+    <tr><td>E</td><td>Weak</td><td>50 – 59.9</td></tr>
+    <tr><td>F</td><td>Fail</td><td>أقل من 50</td></tr>
+  </table>
+  <h3>مستويات الكفاءة (في شاشات التحليل)</h3>
+  <p>إلى جانب التقدير الحرفي، تستخدم شاشات التحليل تصنيفًا رباعيًا مستلهمًا من مقياس Lasater للتفكير السريري:</p>
+  <table>
+    <tr><th>المستوى</th><th>المسمى</th><th>المدى</th></tr>
+    <tr><td>4</td><td>Exemplary</td><td>85 وأعلى</td></tr>
+    <tr><td>3</td><td>Accomplished</td><td>70 – 84.9</td></tr>
+    <tr><td>2</td><td>Developing</td><td>50 – 69.9</td></tr>
+    <tr><td>1</td><td>Beginning</td><td>أقل من 50</td></tr>
+  </table>
+  <p>بعد التقديم، تظهر على صفحتك حالة مراجعة المشرف: <b>Under review</b> (قيد المراجعة)، <b>Approved</b> (معتمد)، أو <b>Needs revision</b> (يحتاج تعديلًا)، مع ملاحظة المشرف إن وُجدت.</p>
+</div>
+
+<!-- 11 -->
+<h2 id="s11">11) التسليم دون اتصال (من جهة الطالب)</h2>
+<div class="card">
+  <ol class="steps">
+    <li>في التقرير النهائي اضغط «Export for offline submission (file)» — يُحفظ ملف تقرير يحمل محتواه ورقم تحقق (checksum).</li>
+    <li>انقل الملف بأي وسيلة دون اتصال: USB، بلوتوث، أو رسالة.</li>
+    <li>سلّمه لمشرفك شخصيًا.</li>
+    <li>يستورده المشرف من شاشة «Receive files»، فيُخزَّن التقرير داخل درجاتك ويُنسب لمشرفك المناسب تلقائيًا.</li>
+  </ol>
+  <div class="ok">هذه الميزة تجعل التسليم ممكنًا حتى عند انقطاع الشبكة تمامًا، وهي البديل العملي للورق.</div>
+</div>
+
+<!-- 12 -->
+<h2 id="s12">12) واجهة المشرف: الشاشات العشر</h2>
+<div class="card">
+  <p>بعد دخول المشرف تظهر شريط التبويبات: <b>Dashboard</b> · <b>Grades</b> · <b>Report Table</b> · <b>Research Data</b> · <b>Attendance</b> · <b>Similarity</b> · <b>Analysis</b> · <b>Weakness</b> · <b>Question Analysis</b> · <b>Receive files</b>. المشرف يرى دائمًا <b>طلاب نطاقه فقط</b>.</p>
+
+  <h3>لوحة المعلومات — Dashboard</h3>
+  <div class="shotbox"><img src="guide_assets/07_sup_dashboard.png" alt="لوحة معلومات المشرف"><div class="cap" style="position:sticky;bottom:0;background:#fff">لوحة المعلومات: مؤشرات عامة، متوسطات أسبوعية، وحالة كل طالب.</div></div>
+
+  <h3>الدرجات — Grades</h3>
+  <p>جدول: الطالب، درجته في كل أسبوع، المتوسط، والتقدير. بالضغط على الطالب يُفتح سجله، وبالضغط على درجة يُفتح تقريره الكامل.</p>
+  <div class="shotbox"><img src="guide_assets/08_sup_grades.png" alt="شاشة الدرجات"><div class="cap" style="position:sticky;bottom:0;background:#fff">شاشة الدرجات: مصفوفة الطلاب × الأسابيع مع المتوسط والتقدير.</div></div>
+
+  <h3>جدول التقارير — Report Table</h3>
+  <p>عرض الجدولي التفصيلي لعناصر كل تقرير (بنية مسطّحة لكل قسم وبند)، مفيد للتدقيق والمراجعة الدقيقة.</p>
+  <div class="shotbox"><img src="guide_assets/09_sup_report_table.png" alt="جدول التقارير"><div class="cap" style="position:sticky;bottom:0;background:#fff">جدول التقارير: كل بند من بنود التقرير مصفوفًا للتدقيق.</div></div>
+
+  <h3>بيانات البحث — Research Data</h3>
+  <p>عرض مجمّع للبيانات السريرية المقدَّم (سجل قابل للتصدير والتحليل)، مع تفاصيل التسليمات وعناصرها.</p>
+  <div class="shotbox"><img src="guide_assets/09b_sup_research.png" alt="بيانات البحث"><div class="cap" style="position:sticky;bottom:0;background:#fff">بيانات البحث: تجميع كل التسليمات في جدول واحد قابل للتصدير.</div></div>
+
+  <h3>الحضور — Attendance</h3>
+  <p>مصفوفة الطلاب × الأسابيع بالرموز <b>P</b> (حاضر)، <b>X</b> (غائب)، <b>E</b> (عذر)، مع حساب الغيابات والوضعية. التفاصيل في القسم التالي.</p>
+  <div class="shotbox"><img src="guide_assets/10_sup_attendance.png" alt="شاشة الحضور"><div class="cap" style="position:sticky;bottom:0;background:#fff">شاشة الحضور: تسجيل الحضور لكل أسبوع وحساب الحالة تلقائيًا.</div></div>
+
+  <h3>التشابه — Similarity</h3>
+  <div class="shotbox"><img src="guide_assets/11_sup_similarity.png" alt="شاشة التشابه"><div class="cap" style="position:sticky;bottom:0;background:#fff">شاشة التشابه: مسح زمني كامل يكشف التقارير المتشابهة.</div></div>
+  <div class="shot small"><img src="guide_assets/11b_sup_similarity_compare.png" alt="مقارنة تقريرين"><div class="cap">نافذة المقارنة بين تقريرين جنبًا إلى جنب مع نسب التشابه.</div></div>
+
+  <h3>التحليل — Analysis · نقاط الضعف — Weakness · تحليل الأسئلة — Question Analysis</h3>
+  <div class="shotbox"><img src="guide_assets/12_sup_analysis.png" alt="التحليل"><div class="cap" style="position:sticky;bottom:0;background:#fff">التحليل: توزيع الطلاب على مستويات الكفاءة الأربعة ومؤشرات الفصل.</div></div>
+  <div class="shotbox"><img src="guide_assets/13_sup_weakness.png" alt="نقاط الضعف"><div class="cap" style="position:sticky;bottom:0;background:#fff">نقاط الضعف: متوسط كل قسم عبر الطلاب (أخضر ≥70%، أصفر 50–69%، أحمر &lt;50%).</div></div>
+  <div class="shotbox"><img src="guide_assets/13b_sup_question_analysis.png" alt="تحليل الأسئلة"><div class="cap" style="position:sticky;bottom:0;background:#fff">تحليل الأسئلة: نسبة الإجابة الصحيحة لكل بند على مستوى الفصل.</div></div>
+
+  <h3>استلام الملفات — Receive files</h3>
+  <p>استيراد ملفات التقارير التي سلّمها الطلاب دون اتصال. تُتحقَّق الملفات من الصيغة والنسخة والرقم التحقيقي واكتمال الأقسام الـ11 وصحة الطالب والأسبوع قبل حفظها، ويُنسب كل تقرير لمشرف مناسبة تلقائيًا.</p>
+  <div class="shotbox"><img src="guide_assets/14_sup_receive_files.png" alt="استلام الملفات"><div class="cap" style="position:sticky;bottom:0;background:#fff">شاشة استلام الملفات: تحميل ملفات التقارير دون اتصال والتحقق منها.</div></div>
+</div>
+
+<!-- 13 -->
+<h2 id="s13">13) الحضور ووضعيات الطالب</h2>
+<div class="card">
+  <p>يُسجَّل الحضور لكل أسبوع برمز واحد:</p>
+  <table>
+    <tr><th>الرمز</th><th>المعنى</th></tr>
+    <tr><td><b>P</b></td><td>حاضر (Present)</td></tr>
+    <tr><td><b>X</b></td><td>غائب (Absent)</td></tr>
+    <tr><td><b>E</b></td><td>غائب بعذر (Excused)</td></tr>
+  </table>
+  <p>تُحسب الوضعية تلقائيًا من عدد الغيابات:</p>
+  <table>
+    <tr><th>عدد الغيابات</th><th>الوضعية</th></tr>
+    <tr><td>غياب واحد</td><td>Monitoring (متابعة)</td></tr>
+    <tr><td>غيابان</td><td>First warning (إنذار أول)</td></tr>
+    <tr><td>ثلاثة غيابات</td><td>Final warning (إنذار نهائي)</td></tr>
+  </table>
+</div>
+
+<!-- 14 -->
+<h2 id="s14">14) كشف التشابه بين التقارير</h2>
+<div class="card">
+  <p>تقارن المنصة النصوص الحرة المقدَّمة (بتطبيع عربي) عبر كل الأسابيع وبين الطلاب، وتنبّه إلى التشابه المشبوه.</p>
+  <h3>حدود التنبيه</h3>
+  <table>
+    <tr><th>المؤشر</th><th>العتبة</th></tr>
+    <tr><td>تشابه النص الحر (Free)</td><td>35% وأعلى يظهر في الشاشة</td></tr>
+    <tr><td>التشابه المركّب (Combined)</td><td>45% وأعلى يظهر في الشاشة</td></tr>
+    <tr><td>تحذير قبل التسليم</td><td>نص حر ≥70% أو مركّب ≥55%</td></tr>
+  </table>
+  <h3>حالات مراجعة التشابه</h3>
+  <ul>
+    <li><b>Duplicate check pending</b> — قيد الفحص: تُعلَّق الدرجة مؤقتًا (تظهر 0 محجوزة) حتى يفصل المشرف.</li>
+    <li><b>Duplicate CONFIRMED</b> — تشابه مؤكَّد: تصبح درجة الأسبوع <b>0</b>.</li>
+    <li><b>Not a duplicate</b> — ليس تشابهًا: تعود الدرجة الحقيقية.</li>
+  </ul>
+  <p>من شاشة التشابه يفتح المشرف نافذة «Compare / decide» لمقارنة التقريرين جنبًا إلى جنب، ثم يثبّت قراره.</p>
+  <div class="note">مقارنة النصوص الحرة تحتاج إجابات نصية مكتوبة داخل الأقسام؛ التقارير الفارغة من النص الحر لا تُقارَن نصيًا.</div>
+</div>
+
+<!-- 15 -->
+<h2 id="s15">15) التحليل ونقاط الضعف وتحليل الأسئلة</h2>
+<div class="card">
+  <ul>
+    <li><b>Analysis (التحليل):</b> توزيع طلاب الفصل على مستويات الكفاءة الأربعة، ومؤشرات عامة عن الأداء، لمعرفة المستوى الجماعي.</li>
+    <li><b>Weakness (نقاط الضعف):</b> متوسط كل قسم عبر الطلاب مرتّبًا من الأضعف، بألوان: أخضر (≥70%)، أصفر (50–69%)، أحمر (&lt;50%).</li>
+    <li><b>Question Analysis (تحليل الأسئلة):</b> نسبة الإجابة الصحيحة لكل بند على مستوى الفصل — يكشف المفاهيم التي يخطئ فيها الجميع فتُوجَّه لها المحاضرة.</li>
+  </ul>
+  <div class="ok">هذه الشاشات الثلاث هي أداة المشرف لتخطيط التدريس: أين يقع الضعف بالضبط، وعلى أي مستوى، وفي أي سؤال.</div>
+</div>
+
+<!-- 16 -->
+<h2 id="s16">16) مراجعة التقرير وتسجيل الدرجات العملية</h2>
+<div class="card">
+  <p>من شاشة الدرجات، اضغط على درجة طالب لفتح تقريره الكامل في نافذة المراجعة:</p>
+  <div class="shot small"><img src="guide_assets/16_sup_review_modal.png" alt="نافذة مراجعة التقرير"><div class="cap">نافذة مراجعة التقرير عند المشرف: التقرير الرسمي، ثم المراجعة والدرجات العملية.</div></div>
+  <p>تتيح لك هذه النافذة:</p>
+  <ul>
+    <li><b>إضافة مراجعة:</b> Under review / Approved / Needs revision، مع ملاحظة تظهر للطالب على صفحته وتقريره.</li>
+    <li><b>الدرجات العملية الرسمية:</b> التقييم السريري المستمر <b>/40</b> + الاختبار العملي الداخلي <b>/20</b> = 60 نقطة، مع اقتراح تلقائي للحقل من درجة المنصة.</li>
+    <li><b>Full details table (Excel view):</b> فتح الجدول التفصيلي لبند كل تقرير.</li>
+    <li><b>فتح الأسبوع لإعادة (Unlock)</b> أو <b>حذف</b> التسليم عند الحاجة.</li>
+    <li>عرض حالة التشابه وأزرار الفصل فيها (تأكيد / رفض التشابه).</li>
+  </ul>
+</div>
+
+<!-- 17 -->
+<h2 id="s17">17) الإشعارات وشريط التبليغ</h2>
+<div class="card">
+  <p>في الأعلى زر جرس <b>للإشعارات</b> وعدّاد غير المقروء. بالضغط عليه تُفتح قائمة الإشعارات:</p>
+  <div class="shotbox"><img src="guide_assets/15_sup_notifications.png" alt="لوحة الإشعارات"><div class="cap" style="position:sticky;bottom:0;background:#fff">لوحة الإشعارات: تسليمات، تنبيهات تشابه، تسجيلات حضور، وتقييمات. مع «مسح الكل».</div></div>
+  <p>وإلى جانبها يوجد <b>شريط تبليغ متحرك</b> أعلى الصفحة يعرض آخر الإشعارات الخاصة بنطاقك (بالعربية). كل مشرف يرى إشعارات طلابه فقط، وكل طالب يرى إشعاراته هو فقط.</p>
+</div>
+
+<!-- 18 -->
+<h2 id="s18">18) الإدارة والنسخ الاحتياطي (إشارة مختصرة)</h2>
+<div class="card">
+  <p>بعد دخول المدير تظهر صفحات إضافية: <b>Admin Hub</b> (مركز الإدارة) و<b>Backup / Restore</b> (النسخ الاحتياطي), مع باكورة من الأدوات:</p>
+  <ul>
+    <li><b>الإعدادات العامة:</b> عدد الأسابيع (الافتراضي 13)، تاريخ بداية الفصل، الجهة، البرنامج، وتغيير رقم المنصة السري.</li>
+    <li><b>الأوزان:</b> وزن لكل قسم من الأحد عشر بشرط أن يكون المجموع 100.</li>
+    <li><b>الكشف والكادر:</b> استيراد كشف الطلاب (الاسم | المستشفى | المجموعة | الفترة) وقائمة الكادر، وتوزيع المستشفيات.</li>
+    <li><b>النسخ الاحتياطي/الاستعادة:</b> تصدير كامل البيانات كملف JSON واستعادته، وتصدير ملفات Excel/CSV للدرجات والحضور والسجل.</li>
+    <li><b>المزامنة (اختيارية):</b> دفع/سحب حالة العمل إلى الخادم المركزي عند تفعيله.</li>
+  </ul>
+  <div class="note">المشرف لا يرى صفحات الإدارة؛ ظهورها مقصور على المدير. راجع صفحة النسخ الاحتياطي للمزيد عند الحاجة.</div>
+</div>
+
+<!-- 19 -->
+<h2 id="s19">19) الحارس الدائم وسير العمل</h2>
+<div class="card">
+  <p>على جهاز الاستضافة يعمل «حارس» (Watchdog) مجدول يفحص الخادم دوريًا عبر فحص الصحة <code>/healthz</code>، ويعيد تشغيله فورًا عند توقفه، ويسجّل ما يحدث. كما يُنشئ الخادم نسخة احتياطية عند كل إقلاع ونسخة يومية تلقائية.</p>
+  <div class="ok"><b>سير العمل اليومي باختصار:</b> الطالب يفتح أسبوعه ← يكتب التقرير الموجّه ويؤكّد الأقسام ← يقدّم التقرير ← المشرف يراجعه ويعتمده ويكتب ملاحظته ← تظهر الدرجة والملاحظة للطالب، وتتراكم بيانات التحليل والحضور والتشابه.</div>
+</div>
+
+<!-- 20 -->
+<h2 id="s20">20) أسئلة شائعة وحل مشكلات</h2>
+<div class="card">
+  <h4>لا أرى اسمي في شاشة الدخول</h4>
+  <p>تأكد أن اسمك مُدرج في الكشف/الكادر لدى المدير. إن كتبت الاسم يدويًا، اختره من القائمة المنسدلة بدقّة.</p>
+  <h4>كتبت الرقم لكنه لا يقبل</h4>
+  <p>الرقم <b>6 أرقام</b>. إن كان أول دخول للمشرف فسيُطلب منه تعيين رقم جديد إلزاميًا. بعد عدة محاولات خاطئة يظهر قفل مؤقت؛ انتظر ثم أعد المحاولة.</p>
+  <h4>لا يستطيع الطالب إعادة التسليم</h4>
+  <p>التسليم مقفل تلقائيًا بعد التقديم. يفتحه المشرف من شاشة الدرجات عبر زر «فتح لإعادة».</p>
+  <h4>غيّرت وزنًا ولم يُحفظ</h4>
+  <p>المجموع يجب أن يساوي <b>100</b> بالضبط. صفّر الاختلاف أو أعد التعيين الافتراضي.</p>
+  <h4>هل يعمل دون إنترنت؟</h4>
+  <p>نعم. الكتابة والدرجات والحضور تُحفظ محليًا. المزامنة مع الخادم المركزي تعمل حين يتوفر الاتصال من صفحة المزامنة.</p>
+  <h4>كيف أنقل العمل إلى جهاز آخر؟</h4>
+  <p>صدّر نسخة احتياطية (ملف JSON) من الجهاز الأول ثم استعدها على الجهاز الثاني، أو استخدم المزامنة عند تفعيلها.</p>
+  <h4>لماذا الشاشات بالإنجليزية؟</h4>
+  <p>واجهة المنصة (أزرارها وحقولها) بالإنجليزية، وهذا مقصود لتمرين الطالب على المصطلحات السريرية الإنجليزية. أما الشريط الإعلاني فبالعربية.</p>
+</div>
+
+<!-- 21 -->
+<h2 id="s21">21) مصطلحات سريعة</h2>
+<div class="card">
+  <table>
+    <tr><th>المصطلح</th><th>معناه</th></tr>
+    <tr><td>تقرير موجّه</td><td>تقرير يُبنى عبر أسئلة مرشدة تتبع الحالة المرجعية قسمًا قسمًا.</td></tr>
+    <tr><td>الحالة المرجعية</td><td>الطفل الافتراضي الذي تُقارَن إجاباتك على أساسه (19 حالة).</td></tr>
+    <tr><td>الوزن</td><td>نسبة القسم من 100 (مجموعها دائمًا 100).</td></tr>
+    <tr><td>التقدير</td><td>حرف من A إلى F حسب الدرجة من 100.</td></tr>
+    <tr><td>مستوى الكفاءة</td><td>تصنيف رباعي (Exemplary / Accomplished / Developing / Beginning) يظهر في التحليل.</td></tr>
+    <tr><td>التسليم دون اتصال</td><td>تصدير ملف التقرير وتسليمه يدويًا ثم استيراده من المشرف.</td></tr>
+    <tr><td>كشف التشابه</td><td>مقارنة النصوص الحرة والتقارير لكشف النسخ المشبوه.</td></tr>
+    <tr><td>الخادم المركزي</td><td>خدمة اختيارية تجمع الحالات وتحتفظ بالنسخ الاحتياطية التلقائية.</td></tr>
+    <tr><td>الحارس (Watchdog)</td><td>خدمة مجدولة تفحص الخادم وتمنع توقفه.</td></tr>
+    <tr><td>checksum / hash</td><td>رقم تحقق يضمن سلامة التقرير في الملف المصدَّر والمستورد.</td></tr>
+  </table>
+</div>
+
+<div class="footer">
+  دليل الاستخدام الكامل لمنصة التدريب السريري — مبنيّ على السلوك الفعلي للمنصة، وكل لقطة فيه حقيقية من واجهة المنصة.<br>
+  اللقطات مأخوذة من بيانات تدريبية توضيحية. التطبيق: <span dir="ltr">http://127.0.0.1:9080/</span> · الخادم المركزي: <span dir="ltr">http://127.0.0.1:8080/</span>
+</div>
+
+</div>
+</body>
+</html>
