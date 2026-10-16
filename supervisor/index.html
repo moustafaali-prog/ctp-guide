@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ورشة تدريب المشرفين — منصة التدريب السريري</title>
+<style>
+:root{
+  --bg:#eef2f7; --panel:#ffffff; --ink:#152a3d; --mut:#5b7085; --line:#dde6ef;
+  --navy:#0b2b44; --navy2:#123a5b; --blue:#1b6ca8; --gold:#e0b64d; --gold2:#f6e6b4;
+  --ok:#18794e; --okb:#e6f6ee; --warn:#9a6a00; --warnb:#fdf3da; --err:#a3182e; --errb:#fdebed;
+  --soft:#eaf1f8; --shadow:0 10px 30px rgba(11,43,68,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Segoe UI",Tahoma,"Noto Naskh Arabic","Noto Kufi Arabic",Arial,sans-serif;
+  line-height:1.9;font-size:16px;}
+a{color:var(--blue)}
+img{max-width:100%}
+#progress{position:fixed;top:0;right:0;height:4px;width:0;background:linear-gradient(90deg,var(--blue),var(--gold));z-index:60;transition:width .1s}
+
+.k{color:var(--mut);font-size:13px}
+.shell{display:grid;grid-template-columns:300px 1fr;min-height:100vh}
+aside.side{position:sticky;top:0;height:100vh;overflow-y:auto;background:linear-gradient(170deg,#0a2338,#0e3557 55%,#0a2b44);color:#c8d8e7;padding:22px 16px;border-left:1px solid #1c3a58}
+.brand{display:flex;gap:10px;align-items:center;margin-bottom:16px}
+.brand .dot{width:40px;height:40px;border-radius:12px;background:var(--gold);color:#241a00;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex:0 0 auto}
+.brand b{color:#fff;font-size:14.5px;display:block}
+.brand span{display:block;color:#9fb6ca;font-size:11.5px}
+#nav{display:flex;flex-direction:column;gap:2px}
+#nav a{display:flex;gap:10px;align-items:center;color:#b9cbdb;text-decoration:none;padding:8px 10px;border-radius:9px;font-size:14px;border:1px solid transparent;transition:.15s}
+#nav a:hover{background:rgba(255,255,255,.07);color:#fff}
+#nav a.active{background:rgba(224,182,77,.18);color:#fff;border-color:rgba(224,182,77,.45)}
+#nav .n{width:22px;height:22px;border-radius:7px;background:rgba(255,255,255,.10);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex:0 0 auto}
+#nav a.active .n{background:var(--gold);color:#261d00}
+.side-foot{margin-top:18px;font-size:12px;color:#8ba0b3;border-top:1px solid #1c3d5a;padding-top:12px;line-height:1.7}
+@media(max-width:940px){.shell{grid-template-columns:1fr}.side{position:static;height:auto}}
+
+main{padding:26px 34px 90px;min-width:0}
+.wrap{max-width:1140px;margin:0 auto}
+
+.hero{background:linear-gradient(140deg,#0b2440,#123f63 55%,#1a5a86);color:#fff;border-radius:22px;padding:40px 38px;position:relative;overflow:hidden;box-shadow:0 14px 40px rgba(11,43,68,.22)}
+.hero:after{content:"";position:absolute;left:-60px;bottom:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(224,182,77,.4),transparent 70%);pointer-events:none}
+.hero .kicker{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:999px;padding:5px 14px;font-size:13px}
+.hero h1{margin:16px 0 8px;font-size:34px;line-height:1.5}
+.hero p{margin:6px 0;color:#cfe1f1;max-width:800px}
+.hero .cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{cursor:pointer;border:1px solid var(--gold);background:transparent;color:#fff;border-radius:11px;padding:9px 18px;font-size:14.5px;font-family:inherit;display:inline-flex;gap:8px;align-items:center;text-decoration:none}
+.hero .btn.primary{background:var(--gold);color:#261d00;font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px;position:relative;z-index:2}
+.stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:14px 16px}
+.stat b{display:block;font-size:27px;color:#fff;line-height:1.3;font-variant-numeric:tabular-nums}
+.stat span{color:#cfe0f2;font-size:13px}
+
+section.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px 30px;margin-top:26px;box-shadow:0 8px 24px rgba(11,43,68,.06);scroll-margin-top:24px}
+section.card>h2{margin:0 0 4px;color:var(--navy);font-size:24px;display:flex;align-items:center;gap:12px}
+section.card>h2 .idx{background:var(--navy);color:#fff;border-radius:10px;font-size:14px;padding:4px 11px;font-weight:700;flex:0 0 auto}
+p.lead{color:var(--mut);margin:6px 0 18px;font-size:16.5px}
+h3{color:var(--navy2);font-size:19px;margin:26px 0 10px}
+h4{color:var(--navy2);font-size:16px;margin:18px 0 8px}
+ul,ol{margin:10px 0;padding-inline-start:24px}
+li{margin:6px 0}
+code{background:var(--soft);border:1px solid var(--line);border-radius:7px;padding:1px 8px;font-size:14px;direction:ltr;display:inline-block}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:980px){.g2,.g3,.g4{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.tile{background:#fafcff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.tile h4{margin-top:0}
+.tile .k{font-size:12.5px;color:var(--mut)}
+.note{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.note.ok{background:var(--okb);border-color:#bfe6d2}
+.note.warn{background:var(--warnb);border-color:#ecd9a6}
+.note.err{background:var(--errb);border-color:#f3c4cd}
+.note b{color:var(--navy)}
+
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+thead th{background:var(--navy);color:#fff;text-align:start;padding:11px 13px;font-weight:600;font-size:14.5px}
+tbody td{border-top:1px solid var(--line);padding:10px 12px;vertical-align:top}
+tbody tr:nth-child(even){background:#f7fafd}
+td.num,th.num{text-align:center;white-space:nowrap}
+.badge{display:inline-block;border-radius:999px;padding:2px 11px;font-size:12.5px;border:1px solid;white-space:nowrap}
+.b-ok{background:var(--okb);border-color:#bfe6d2;color:var(--ok)}
+.b-warn{background:var(--warnb);border-color:#ecd9a6;color:var(--warn)}
+.b-err{background:var(--errb);border-color:#f3c4cd;color:var(--err)}
+.b-mut{background:var(--soft);border-color:var(--line);color:var(--mut)}
+.b-blue{background:#e7f1fb;border-color:#c4dcf3;color:var(--blue)}
+
+.steps{counter-reset:s;list-style:none;padding:0;margin:12px 0}
+.steps>li{counter-increment:s;position:relative;padding:10px 52px 10px 0;border-bottom:1px dashed var(--line)}
+.steps>li:last-child{border-bottom:0}
+.steps>li:before{content:counter(s);position:absolute;right:0;top:10px;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+
+.sec-list{display:grid;gap:12px;margin-top:8px}
+details.sec{border:1px solid var(--line);border-radius:14px;background:#fbfdff;overflow:hidden}
+details.sec[open]{box-shadow:0 8px 22px rgba(11,43,68,.08)}
+details.sec>summary{cursor:pointer;list-style:none;padding:15px 18px;display:flex;align-items:center;gap:14px;font-weight:700;color:var(--navy)}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary .num{width:34px;height:34px;border-radius:10px;background:var(--soft);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800;flex:0 0 auto}
+details.sec>summary .tt{display:flex;flex-direction:column;line-height:1.4}
+details.sec>summary .en{color:var(--mut);font-weight:500;font-size:13px}
+details.sec>summary .w{margin-inline-start:auto;background:var(--gold2);border:1px solid #ecd9a6;color:#6b5312;border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700;white-space:nowrap}
+details.sec .body{padding:6px 18px 20px;border-top:1px solid var(--line);background:#fff}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tab{cursor:pointer;border:1px solid var(--line);background:#f2f6fa;border-radius:999px;padding:8px 16px;font-size:14px;font-family:inherit;color:var(--navy2);font-weight:600}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tabpanes>.tp{display:none}
+.tabpanes>.tp.on{display:block;animation:fade .3s ease}
+
+.shot{margin:16px 0}
+.shotbox{max-height:620px;overflow:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.shotbox img{display:block;width:100%}
+.shot img.zoom{display:block;width:100%;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:zoom-in;transition:.2s}
+.shot img.zoom:hover{box-shadow:0 6px 22px rgba(11,43,68,.18)}
+.cap{font-size:12.8px;color:var(--mut);margin-top:7px}
+
+.reveal-btn{cursor:pointer;background:var(--blue);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-size:14.5px;font-family:inherit;font-weight:600;margin-top:10px}
+.reveal-btn.ghost{background:#eef4fb;color:var(--navy2);border:1px solid var(--line)}
+.reveal{display:none;margin-top:12px;border:1px dashed #bcd2e6;background:#f7fbff;border-radius:12px;padding:14px 16px}
+.reveal.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.scenario{background:#fbfdff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tab{cursor:pointer;border:1px solid var(--line);background:#f2f6fa;border-radius:999px;padding:8px 16px;font-size:14px;font-family:inherit;color:var(--navy2);font-weight:600}
+.tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tabpanes>.tp{display:none}
+.tabpanes>.tp.on{display:block;animation:fade .3s ease}
+
+.quiz{background:#fbfdff;border:1px solid var(--line);border-radius:14px;padding:18px}
+.q{padding:14px 16px;border-bottom:1px dashed var(--line)}
+.q:last-of-type{border-bottom:0}
+.qt{font-weight:700;color:var(--navy);margin-bottom:8px}
+.opt{display:flex;gap:9px;align-items:flex-start;padding:8px 12px;border:1px solid var(--line);border-radius:10px;margin:6px 0;cursor:pointer;background:#fff}
+.opt:hover{background:#f4f9ff}
+.opt.pick-ok{background:var(--okb);border-color:#bfe6d2}
+.opt.bad{opacity:.6}
+.q .expl{display:none;margin-top:10px;color:var(--ok);font-size:14.5px;background:var(--okb);border:1px solid #bfe6d2;border-radius:10px;padding:8px 12px}
+.q.done .expl{display:block}
+.quizbar{display:flex;gap:14px;align-items:center;margin-top:14px;flex-wrap:wrap}
+.scorebig{font-weight:800;color:var(--navy)}
+
+.faq{border:1px solid var(--line);border-radius:14px;background:#fbfdff;margin:10px 0;overflow:hidden}
+.faq>summary{cursor:pointer;list-style:none;padding:14px 18px;font-weight:700;color:var(--navy)}
+.faq>summary::-webkit-details-marker{display:none}
+.faq .a{padding:0 18px 16px;color:var(--ink)}
+
+footer{margin-top:30px;color:var(--mut);font-size:13.5px;text-align:center;border-top:1px solid var(--line);padding-top:18px}
+
+#lb{position:fixed;inset:0;background:rgba(5,18,32,.9);display:none;z-index:60;padding:34px;overflow:auto}
+#lb.on{display:block}
+#lb img{max-width:1120px;width:100%;margin:0 auto;display:block;border-radius:12px;border:1px solid #2b4a68}
+#lb .x{position:fixed;top:18px;left:18px;background:#fff;border:none;border-radius:10px;padding:8px 15px;cursor:pointer;font-size:15px;font-weight:700;color:var(--navy)}
+
+@media(max-width:940px){
+  main{padding:18px 18px 80px}
+  .stats{grid-template-columns:1fr 1fr}
+  .hero{padding:30px 24px}.hero h1{font-size:27px}
+  #nav .n{display:none}
+}
+@media(max-width:760px){
+  .stats{grid-template-columns:1fr 1fr}
+  section.card{padding:20px 18px}
+}
+@media print{
+  .side{display:none}main{padding:0}
+  section.card{break-inside:avoid;box-shadow:none}
+  .shotbox{max-height:none;overflow:visible}
+  .tabpanes>.tp{display:block!important}
+  .reveal{display:block!important}
+  #lb{display:none}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<div class="shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="side">
+    <div class="brand">
+      <div class="dot">م</div>
+      <div><b>ورشة المشرف</b><span>منصة التدريب السريري</span></div>
+    </div>
+    <nav id="nav">
+      <a href="#overview"><span class="n">1</span> دورك على المنصة</a>
+      <a href="#scope"><span class="n">2</span> النطاق والإسناد</a>
+      <a href="#dashboard"><span class="n">3</span> لوحة التحكم</a>
+      <a href="#reporttab"><span class="n">4</span> جدول التقارير</a>
+      <a href="#grades"><span class="n">5</span> الدرجات</a>
+      <a href="#attendance"><span class="n">6</span> الحضور</a>
+      <a href="#analysis"><span class="n">7</span> التحليل</a>
+      <a href="#weakness"><span class="n">8</span> نافذة الضعف</a>
+      <a href="#items"><span class="n">9</span> تحليل الأسئلة</a>
+      <a href="#research"><span class="n">10</span> بيانات البحث</a>
+      <a href="#receive"><span class="n">11</span> استقبال الملفات</a>
+      <a href="#review"><span class="n">12</span> مراجعة تقرير</a>
+      <a href="#similarity"><span class="n">13</span> كشف التشابه</a>
+      <a href="#issues"><span class="n">14</span> مسائل معروفة</a>
+      <a href="#faq"><span class="n">15</span> أسئلة شائعة</a>
+      <a href="#quiz"><span class="n">16</span> اختبر نفسك</a>
+    </nav>
+    <div class="side-foot">محتوًى مستخرج حرفيًّا من البناء العامل للمنصة. كل صورة لقطة حقيقية من النظام التجريبي.</div>
+  </aside>
+
+  <main>
+    <div class="wrap">
+
+      <!-- ============ HERO ============ -->
+      <header class="hero">
+        <span class="kicker">ورشة تدريب المشرفين — التشغيل والمراجعة</span>
+        <h1>كيف تُدير تقارير طلابك على المنصة</h1>
+        <p>مسار عملي من تسليم الطالب إلى قرار المشرف: الإسناد التلقائي، ثم تسع نوافذ إشرافية، وقراءة الأرقام، ومراجعة كل تقرير، وصولًا إلى كشف التشابه. كل نافذة مع صورة حقيقية وشرح لما تفعله وكيف تستجيب.</p>
+        <div class="stats">
+          <div class="stat"><b data-count="9">0</b><span>نوافذ إشرافية للمشرف</span></div>
+          <div class="stat"><b data-count="11">0</b><span>قسمًا في كل تقرير</span></div>
+          <div class="stat"><b data-count="100">0</b><span>درجة موزّعة بالأوزان</span></div>
+          <div class="stat"><b data-count="13">0</b><span>أسبوعًا في الفصل</span></div>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#overview">ابدأ الورشة</a>
+          <button class="btn" onclick="window.print()">طباعة / حفظ PDF</button>
+        </div>
+      </header>
+
+      <!-- ============ 1. OVERVIEW ============ -->
+      <section class="card" id="overview">
+        <h2><span class="idx">1</span> دورك على المنصة</h2>
+        <p class="lead">الطالب يكتب التقرير، والمنصة تحسب الدرجة، ودورك أن تراجع وتقرّر.</p>
+        <p>بعد أن يسلّم الطالب تقرير حالته الأسبوعي (أحد عشر قسمًا بصيغة «Pediatric Daily Clinical Report»)، يُسند التقرير تلقائيًّا إلى المشرف المسؤول عن نطاقه. تفتح لك المنصة واجهة إشرافية واحدة تجمع بيانات طلابك: الدرجات، الحضور، التحليل، الضعف، تحليل الأسئلة، بيانات البحث، ومراجعة كل تقرير على حدة، ثم كشف التشابه بين التقارير.</p>
+        <h3>ما الذي يعود عليك</h3>
+        <div class="grid g4">
+          <div class="tile"><h4>تقييم موحّد</h4><p class="k">درجة تلقائية موزّعة بالأوزان لكل طالب في كل أسبوع، ودرجة نهائية قابلة للتعديل عند الحاجة.</p></div>
+          <div class="tile"><h4>متابعة حيّة</h4><p class="k">لوحة تحكم ورسوم تلخّص التسليم والحضور ومستوى الأداء على مستوى نطاقك.</p></div>
+          <div class="tile"><h4>قرار موثّق</h4><p class="k">لكل تقرير مراجعة (معتمدة / تحت المراجعة / تحتاج تعديلًا) وملاحظة تصل للطالب.</p></div>
+          <div class="tile"><h4>حماية الأصالة</h4><p class="k">كشف تشابه آلي بين تقارير الطلاب ويعرض «قيد الفحص — الدرجة موقوفة» حتى تقرر.</p></div>
+        </div>
+        <div class="note" style="margin-top:16px"><b>المبدأ:</b> كل رقم تراه في هذه النوافذ مشتق من تقرير فعلي سلّمه طالب. لا شيء مُقدَّر أو مُقدَّر يدويًّا؛ المنصة تحسب، وأنت تقرأ وتقرّر.</div>
+      </section>
+
+      <!-- ============ 2. SCOPE ============ -->
+      <section class="card" id="scope">
+        <h2><span class="idx">2</span> النطاق والإسناد</h2>
+        <p class="lead">قبل أي نافذة، افهم من هم طلابك؛ فكل النوافذ تُبنى على نطاقك أنت.</p>
+        <p>لكل مشرف <b>نطاق (scope)</b> يحدّده مسؤول المنصة، وقد يتكوّن من أي مزيج من: المجموعات، والمستشفيات، والورديّة، والمؤسسة. ونطاق المشرف يُقيّد كل ما تراه:</p>
+        <ul>
+          <li><b>لوحة التحكم والجداول:</b> تعرض طلاب نطاقك فقط.</li>
+          <li><b>الإسناد:</b> عند تسليم الطالب يُسند التقرير تلقائيًّا إلى مشرفه عبر <code>Logic.setSupers</code> و<code>Logic.supervisorFor</code>.</li>
+          <li><b>بيانات البحث والتحليل:</b> تُحسب فوق تقارير طلابك فقط.</li>
+        </ul>
+        <div class="note"><b>لماذا يهمّك هذا؟</b> إن اختلفت الأرقام عمّا تتوقّع، فقد يكون السبب أن النطاق يشمل أكثر من مجموعة أو ورديّة. عد إلى إعدادات النطاق قبل تفسير أي رقم.</div>
+        <h3>ما تراه في شريط التنقّل</h3>
+        <p>قائمة المشرف تسع نوافذ: <code>Dashboard</code>، و<code>Grades</code>، و<code>Report Table</code>، و<code>Attendance</code>، و<code>Similarity</code>، و<code>Analysis</code>، و<code>Weakness</code>، و<code>Question Analysis</code>، و<code>Receive files</code>. ولا يظهر لك «Admin Hub» ولا «Backup / Restore» لأنهما محصوران بمسؤول المنصة.</p>
+      </section>
+
+      <!-- ============ 2b. DASHBOARD ============ -->
+      <section class="card" id="dashboard">
+        <h2><span class="idx">2</span> لوحة التحكم (Dashboard)</h2>
+        <p class="lead">نقطة البداية: صورة سريعة عن عدد الطلاب والتقارير وحالة المزامنة.</p>
+        <figure class="shot"><div class="shotbox"><img src="assets/s02_dashboard.png" alt="لوحة تحكم المشرف"></div><figcaption>الشكل 1 — لوحة تحكم المشرف «د. هدى الشريف» مع عدّاد «كل الطلاب»، وبطاقة تبليغ، وحالة المزامنة.</figcaption></figure>
+        <h3>ماذا تقرأ فيها</h3>
+        <div class="grid g3">
+          <div class="tile"><h4>الشريط العلوي</h4><p class="k">اسم المشرف الظاهر في كل نافذة، ومنتقي «كل الطلاب / الطلاب في نطاقي».</p></div>
+          <div class="tile"><h4>حالة المزامنة</h4><p class="k">«Central sync: not configured» تعني أن المزامنة السحابية غير مفعّلة، والبيانات محليّة على الجهاز.</p></div>
+          <div class="tile"><h4>صندوق الصادر</h4><p class="k"><code>Outbox</code>: عدد التسليمات التي تنتظر المزامنة (كلها / معلّقة / متزامنة).</p></div>
+        </div>
+        <div class="note"><b>ملاحظة تشغيل:</b> البيانات تُخزَّن على الجهاز نفسه (IndexedDB مع نسخة في localStorage). تعذُّر المزامنة لا يمنع العمل، لكنه يعني أن البيانات لا تنتقل إلى جهاز آخر إلا عبر ملفات النسخ/الاستقبال.</div>
+      </section>
+
+      <!-- ============ 4. REPORT TABLE ============ -->
+      <section class="card" id="reporttab">
+        <h2><span class="idx">4</span> جدول التقارير</h2>
+        <p class="lead">النافذة الجوهرية: كل تقرير لكل قسم، حقلًا بحقل.</p>
+        <figure class="shot"><div class="shotbox"><img src="assets/s03_report_table.png" alt="جدول التقارير التفصيلي"></div><figcaption>الشكل 2 — «Section-by-section detail table»: صفوف الطلاب × الأقسام الأحد عشر، مع جواب الطالب والنقاط.</figcaption></figure>
+        <p>يعرض الجدول ما كتبه كل طالب فعليًّا في كل قسم، والنقاط التي نالها مقابل كل بند. استخدمه عندما تريد التحقّق من جواب بعينه قبل قرار المراجعة.</p>
+        <div class="note"><b>نصيحة:</b> ابدأ من الطلاب ذوي الدرجات المنخفضة، وافتح التقرير الكامل من نافذة المراجعة (القسم 12) لترى الحالة كما رآها الطالب.</div>
+      </section>
+
+      <!-- ============ 5. GRADES ============ -->
+      <section class="card" id="grades">
+        <h2><span class="idx">5</span> الدرجات</h2>
+        <p class="lead">كيف تتحوّل إجابات الطالب إلى درجة من 100 ورمز حرفي.</p>
+        <figure class="shot"><div class="shotbox"><img src="assets/s04_grades.png" alt="نافذة الدرجات"></div><figcaption>الشكل 3 — «Grades / Weekly Tickets»: صف لكل طالب بعدد التقارير، والتصدير إلى CSV وExcel.</figcaption></figure>
+        <div class="tabs" id="gradeTabs">
+          <button class="tab on" data-t="g-auto">كيف تُحسب الدرجة</button>
+          <button class="tab" data-t="g-scale">سلّم الرموز</button>
+        </div>
+        <div class="tabpanes">
+          <div class="tp on" id="g-auto">
+            <p>لكل قسم وزن من مئة، ودرجته النهائية تُحسب من نسبة النقاط المكتسبة داخل القسم مضروبة في وزنه، ثم تُجمع الأقسام:</p>
+            <table>
+              <thead><tr><th>القسم</th><th class="num">الوزن</th><th>القسم</th><th class="num">الوزن</th></tr></thead>
+              <tbody>
+                <tr><td>التعريفية (ident)</td><td class="num">8</td><td>التاريخ المرضي (hist)</td><td class="num">5</td></tr>
+                <tr><td>الشكوى الرئيسية (cc)</td><td class="num">5</td><td>الأدوية (meds)</td><td class="num">8</td></tr>
+                <tr><td>العلامات الحيوية (vit)</td><td class="num">12</td><td>الفحص السريري (pe)</td><td class="num">14</td></tr>
+                <tr><td>القياسات (anth)</td><td class="num">8</td><td>التحاليل (labs)</td><td class="num">10</td></tr>
+                <tr><td>تاريخ المرض الحالي (hpi)</td><td class="num">10</td><td>خطة الرعاية (ncp)</td><td class="num">12</td></tr>
+                <tr><td>التشخيص التمهيدي (promo)</td><td class="num">8</td><td><b>المجموع</b></td><td class="num"><b>100</b></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tp" id="g-scale">
+            <p>الرمز الحرفي يأتي من الدرجة النهائية وفق السلّم التالي:</p>
+            <table>
+              <thead><tr><th>الدرجة</th><th class="num">الرمز</th><th>الوصف</th></tr></thead>
+              <tbody>
+                <tr><td>90 وما فوق</td><td class="num"><span class="badge b-ok">A</span></td><td>Excellent</td></tr>
+                <tr><td>80 – 89</td><td class="num"><span class="badge b-ok">B</span></td><td>Very Good</td></tr>
+                <tr><td>70 – 79</td><td class="num"><span class="badge b-blue">C</span></td><td>Good</td></tr>
+                <tr><td>60 – 69</td><td class="num"><span class="badge b-warn">D</span></td><td>Acceptable</td></tr>
+                <tr><td>50 – 59</td><td class="num"><span class="badge b-warn">E</span></td><td>Weak</td></tr>
+                <tr><td>أقل من 50</td><td class="num"><span class="badge b-err">F</span></td><td>Fail</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="hint">معادلة الدرجة: <code>weightedScore</code> تجمع لكل قسم <code>weight × (earned / total)</code>. الرمز الحرفي يأتي من الدرجة النهائية.</p>
+        <div class="note"><b>الدرجة مقابل «المهارات العملية»:</b> توجد في نافذة المراجعة بطاقة «Official practical marks» تفصل المهارات العملية: التقييم السريري المستمر 40 نقطة + الامتحان العملي الداخلي 20 نقطة = 60، ويُقترح حقل «Ongoing» من درجة المنصة (الدرجة × 0.4).</div>
+      </section>
+
+      <!-- ============ 6. ATTENDANCE ============ -->
+      <section class="card" id="attendance">
+        <h2><span class="idx">6</span> الحضور</h2>
+        <p class="lead">جدول الحضور لكل أسبوع، وقواعد الإنذار، ودرجة الحضور من 5.</p>
+        <figure class="shot"><div class="shotbox"><img src="assets/s05_attendance.png" alt="نافذة الحضور"></div><figcaption>الشكل 4 — نافذة «Attendance»: صف لكل طالب وعمود لكل أسبوع، مع نسبة الحضور ودرجة الحضور والحالة.</figcaption></figure>
+        <p>خانات الأسبوع تُرمز: <b>P</b> حاضر، و<b>X</b> غائب، و<b>E</b> غياب معذور. وتُحسب حالة المتابعة تلقائيًّا من عدد الغيابات:</p>
+        <table>
+          <thead><tr><th>عدد الغيابات</th><th>الحالة</th></tr></thead>
+          <tbody>
+            <tr><td>صفر</td><td><span class="badge b-ok">Satisfactory</span></td></tr>
+            <tr><td>غياب واحد</td><td><span class="badge b-blue">Monitoring</span></td></tr>
+            <tr><td>غيابان</td><td><span class="badge b-warn">First warning</span></td></tr>
+            <tr><td>ثلاثة فأكثر</td><td><span class="badge b-err">Final warning</span></td></tr>
+          </tbody>
+        </table>
+        <div class="note"><b>احتساب العلامة:</b> لكل محاضرة متتبَّعة 5 نقاط: حضور = 5، إذن بعُذر = 2.5، غياب = 0. ويُحسب الحضور للورديّة المسؤولة عن الطالب (صباحي/مسائي).</div>
+      </section>
+
+      <!-- ============ 7. ANALYSIS ============ -->
+      <section class="card" id="analysis">
+        <h2><span class="idx">7</span> التحليل</h2>
+        <p class="lead">صورة سريعة لأداء نطاقك مقابل الأقسام، بقراءة صحيحة للأرقام.</p>
+        <figure class="shot"><div class="shotbox"><img src="assets/s06_analysis.png" alt="نافذة التحليل"></div><figcaption>الشكل 5 — «Analysis»: متوسطات الأقسام فوق تقارير طلابك، مع نطاقات التقييم.</figcaption></figure>
+        <p>تعرض النافذة متوسط كل قسم، ونطاق مستواه (خبرة/إنجاز/تطوير)، لتعرف أين يقف نطاقك بسرعة قبل الغوص في التقارير الفردية.</p>
+        <div class="note ok"><b>فرق مهم:</b> نافذة التحليل تحسب المتوسطات بشكل صحيح على مستوى كل طالب، فهي مرجعك الموثوق للمقارنة بين الأقسام.</div>
+      </section>
+
+      <!-- ============ 8. WEAKNESS ============ -->
+      <section class="card" id="weakness">
+        <h2><span class="idx">8</span> نافذة الضعف</h2>
+        <p class="lead">لوحة الأقسام الضعيفة باللون: أحمر ضعيف، كهرماني يحتاج عملًا، أخضر متين.</p>
+        <figure class="shot"><div class="shotbox"><img src="assets/s07_weakness.png" alt="نافذة الضعف"></div><figcaption>الشكل 6 — «Weakness board (by section)» مع اختيار طالب واحد: متوسطات الأقسام ونسبها للطالب المحدَّد.</figcaption></figure>
+        <h3>كيف تقرأها</h3>
+        <ul>
+          <li>اختر مشرفًا أو طالبًا واحدًا ثم اضغط «Show».</li>
+          <li>الألوان: <span class="badge b-err">أقل من 50%</span> ضعيف، <span class="badge b-warn">50–69%</span> يحتاج عملًا، <span class="badge b-ok">70% فأكثر</span> متين.</li>
+        </ul>
+        <div class="note err"><b>مسألة معروفة (لا تعتمد على وضع «كل الطلاب»):</b> عند اختيار الوضع العام «Supervisor — all in scope» تظهر نسب الأقسام <b>مضخَّمة</b> (أرقام تتجاوز 100%)، لأن دالة <code>Logic.groupSectionAverages</code> تجمع النقاط المحصَّلة عبر كل تقارير الطالب بينما تُحتسب وزن القسم مرة واحدة فقط. النتيجة الصحيحة تظهر عند تحديد <b>طالب واحد</b>، وهي الموصى بها. راجع التفاصيل في «مسائل معروفة» (القسم 14).</div>
+      </section>
+
+      <!-- ============ 9. ITEM ANALYSIS ============ -->
+      <section class="card" id="items">
+        <h2><span class="idx">9</span> تحليل الأسئلة</h2>
+        <p class="lead">جودة بنود التقرير: أي الأسئلة صعبة، وأيّها لا تميّز بين الطلاب.</p>
+        <figure class="shot"><div class="shotbox"><img src="assets/s08_question_analysis.png" alt="تحليل أسئلة التقارير"></div><figcaption>الشكل 7 — «Question Analysis (Item Analysis)»: صعوبة كل بند ومعامل تمييزه فوق تقارير نطاقك.</figcaption></figure>
+        <p>تُحتسب الإحصاءات على بنود الأسئلة المطابقة في الأقسام المقفلة ذات الدرجة الرقمية، وتُعرض فقط للبنود التي بلغت الحد الأدنى من الاستجابات (5 استجابات). استخدمها لمعرفة البنود التي يخطئ فيها الجميع، أو التي لا تفرّق بين المتمكّن وغيره.</p>
+        <div class="note"><b>لماذا تهمّ؟</b> البند الذي يخطئ فيه الجميع قد يكون صياغته غامضة أو تعليمه ناقصًا — وهذا قرار تحسين تدريسي، لا قرار درجة.</div>
+      </section>
+
+      <!-- ============ 10. RESEARCH ============ -->
+      <section class="card" id="research">
+        <h2><span class="idx">10</span> بيانات البحث</h2>
+        <p class="lead">كل صف = تقرير واحد سلّمه طالب فعليًّا. ما تراه على الشاشة هو نفسه ما تُنزّله.</p>
+        <figure class="shot"><div class="shotbox"><img src="assets/s09_research_data.png" alt="بيانات البحث"></div><figcaption>الشكل 8 — «Research dataset»: ثلاث ترويسات (القسم، اسم المتغيّر لـ SPSS، نص السؤال)، وعمودان لكل سؤال: الجواب والنقاط.</figcaption></figure>
+        <h3>كيف تقرأ الجدول</h3>
+        <ul>
+          <li><b>ثلاثة صفوف ترويسة:</b> الشريط الملوّن يسمّي القسم، ثم اسم المتغيّر، ثم نص السؤال كما كتبه النظام.</li>
+          <li><b>عمودان لكل سؤال:</b> <code>_ANS</code> جواب الطالب، و<code>_PTS</code> النقاط التي نالها.</li>
+          <li><b>دلالة الأرقام:</b> فراغ في عمود النقاط = بند غير مُقيَّم، و<code>0</code> = خطأ، وأي رقم آخر = النقاط المحصَّلة. الجنس 1 = ذكر و2 = أنثى، و<code>P</code> في ATTEND تعني حاضرًا.</li>
+        </ul>
+        <div class="note ok"><b>جاهز للتحليل:</b> يمكنك تنزيل CSV لـ SPSS، أو مصنّف Excel (بورقة بيانات منفصلة)، أو ملف CSV مطابق تمامًا لما على الشاشة.</div>
+      </section>
+
+      <!-- ============ 11. RECEIVE ============ -->
+      <section class="card" id="receive">
+        <h2><span class="idx">11</span> استقبال الملفات</h2>
+        <p class="lead">مسار التسليم دون اتصال: الطالب يُصدّر ملف تقريره، والمشرف يستقبله.</p>
+        <p>عندما يُنفّذ الطالب حالته على جهازه الخاص، يُصدّر ملف تقريره (به بصمة تحقّق checksum)، ثم يُسلّمه إليك عبر USB أو Bluetooth أو رسالة. عبر نافذة الاستقبال يتم فحص كل ملف قبل حفظه: الصيغة، والإصدار، والبصمة، ونطاق الأسبوع، وأن يكون الطالب في القائمة، واكتمال الأقسام الأحد عشر.</p>
+        <figure class="shot"><div class="shotbox"><img src="assets/s10_receive_files.png" alt="نافذة استقبال الملفات"></div><figcaption>الشكل 9 — نافذة «Receive report files from students (offline)» كما تظهر لحساب مسؤول المنصة: زر اختيار الملفات، ووصف التحقق، وجدول النتائج بعد الاستيراد.</figcaption></figure>
+        <div class="note err"><b>مسألة معروفة (صلاحية):</b> تظهر «Receive files» في قائمة المشرف، لكن خريطة الصلاحيات <code>VIEW_PERM.staff</code> لا تسمح للمشرف بفتحها؛ وعند الضغط عليها تظهر رسالة «You are not allowed to open this section.». الصورة أعلاه للنافذة الفعلية كما تُفتح من حساب <b>مسؤول المنصة</b>. راجع «مسائل معروفة» (القسم 14).</div>
+        <figure class="shot"><img class="zoom" src="assets/s11_receive_denied.png" alt="رسالة المنع للمشرف"><figcaption>الشكل 10 — الضغط على «Receive files» بحساب المشرف: تظهر رسالة المنع ولا تتغيّر النافذة.</figcaption></figure>
+        <div class="note"><b>ماذا تفعل عمليًّا الآن؟</b> إن كان التسليم دون اتصال مطلوبًا، يُستحسن أن ينفّذه حساب مسؤول المنصة، أو أن يُحلّ تناقض الصلاحية أولًا (انظر القسم 14). البيانات المستوردة تظهر تلقائيًّا لدى المشرف المسؤول عن الطالب.</div>
+      </section>
+
+      <!-- ============ 12. REVIEW ============ -->
+      <section class="card" id="review">
+        <h2><span class="idx">12</span> مراجعة تقرير</h2>
+        <p class="lead">من هنا تُصدر قرارك على تقرير واحد: مراجعة، وعلامات عملية، وإجراءات.</p>
+        <figure class="shot"><img class="zoom" src="assets/s12_report_review.png" alt="نافذة مراجعة تقرير"><figcaption>الشكل 11 — نافذة مراجعة تقرير «نورا عبد الله — الأسبوع السادس»: الترويسة بالدرجة والمشرف، ثم التقرير الكامل وقرار المراجعة.</figcaption></figure>
+        <h3>عناصر النافذة</h3>
+        <div class="grid g2">
+          <div class="tile"><h4>الترويسة</h4><p class="k">اسم الطالب، الأسبوع، الدرجة من 100، والمشرف المسند إليه التقرير.</p></div>
+          <div class="tile"><h4>التقرير الكامل</h4><p class="k">صيغة «Pediatric Daily Clinical Report» كما كتبها الطالب، مع «Full details table» لعرض Excel.</p></div>
+          <div class="tile"><h4>مراجعة المشرف</h4><p class="k">حالة المراجعة + ملاحظة قصيرة تظهر للطالب في صفحته وتقريره.</p></div>
+          <div class="tile"><h4>العلامات العملية</h4><p class="k">حقل «Ongoing /40» و«Internal exam /20» مع اقتراح تلقائي للحقل الأول.</p></div>
+        </div>
+        <h3>قرار المراجعة</h3>
+        <table>
+          <thead><tr><th>الاختيار</th><th>المعنى</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge b-blue">Under review</span></td><td>قيد المراجعة — الحالة الافتراضية حتى تقرّر.</td></tr>
+            <tr><td><span class="badge b-ok">Approved</span></td><td>معتمد — قبلت التقرير كما هو.</td></tr>
+            <tr><td><span class="badge b-warn">Needs revision</span></td><td>يحتاج تعديلًا — مع ملاحظتك الموجَّهة للطالب.</td></tr>
+          </tbody>
+        </table>
+        <button class="reveal-btn ghost" onclick="reveal(this,'r1')">ماذا يفعل كل زر إجرائي؟</button>
+        <div class="reveal" id="r1">
+          <ul>
+            <li><b>Save review:</b> يحفظ حالة المراجعة والملاحظة للطالب.</li>
+            <li><b>Save practical marks:</b> يحفظ العلامات العملية (المستمر/40 والامتحان/20).</li>
+            <li><b>Reassign final score:</b> يعدّل الدرجة النهائية (0–100) عند الحاجة.</li>
+            <li><b>Unlock for redo:</b> يزيل قفل التسليم ليُعيد الطالب المحاولة.</li>
+            <li><b>Delete:</b> يحذف تسليم الأسبوع للطالب.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ 13. SIMILARITY ============ -->
+      <section class="card" id="similarity">
+        <h2><span class="idx">13</span> كشف التشابه</h2>
+        <p class="lead">مقارنة النصوص الحرّة بين تقارير الطلاب، بالعربية وبمقياس Bigram-Jaccard.</p>
+        <figure class="shot"><img class="zoom" src="assets/s13_similarity.png" alt="لوحة كشف التشابه"><figcaption>الشكل 12 — «Similarity»: فحص كامل يعمل في الخلفية، وجدول الأزواج المتشابهة مع النسب وحالة القرار.</figcaption></figure>
+        <p>تُقارَن النصوص الحرّة (بين الجدول والمصفوفة) عبر تشابه النصّ الحرّ في كل قسم، ثم يُدمج مع تشابه الأقسام. الفحص يعمل في عامل ويب (Web Worker) بالعربية، فتبقى الواجهة متجاوبة.</p>
+        <h3>العتبات</h3>
+        <table>
+          <thead><tr><th>المقياس</th><th class="num">القيمة</th></tr></thead>
+          <tbody>
+            <tr><td>تشابه النص الحرّ (تحذير)</td><td class="num">70%</td></tr>
+            <tr><td>تشابه الأقسام (تحذير)</td><td class="num">60%</td></tr>
+            <tr><td>المؤشّر المركّب (تحذير)</td><td class="num">55%</td></tr>
+            <tr><td>النص الحرّ (متوسط)</td><td class="num">45%</td></tr>
+            <tr><td>حد الفحص للنص الحرّ</td><td class="num">35%</td></tr>
+            <tr><td>حد الفحص للمؤشّر المركّب</td><td class="num">45%</td></tr>
+          </tbody>
+        </table>
+        <p class="hint">يظهر الزوج في اللوحة إذا بلغ النص الحرّ <code>scanFree = 35%</code> أو المؤشّر المركّب <code>scanCombo = 45%</code>. ويُحسب المؤشّر المركّب: <code>free × 0.6 + sections × 0.4</code>.</p>
+        <h3>قرار التشابه</h3>
+        <ol class="steps">
+          <li>يفحص النظام كل الأزواج (عبر الأسابيع، بين الطلاب وداخلهم).</li>
+          <li>يُدرج الأزواج التي تجاوزت حدّ الفحص، مرتّبةً بالأعلى تشابهًا.</li>
+          <li>لكل زوج حالة: «Duplicate check pending — the grade is held» أي أن الدرجة موقوفة ريثما تقرّر.</li>
+          <li>تفتح «Compare / decide» لترى التقريرين جنبًا إلى جنب.</li>
+          <li>قرارك: «Confirm duplication → 0» يصفّر الدرجة، أو «Not a match → restore» يعيدها.</li>
+        </ol>
+        <div class="note warn"><b>تنبيه تشغيلي:</b> كشف التشابه يعتمد على النص الحرّ الذي يكتبه الطالب. تقارير بلا نص حرّ (إجابات مغلقة فقط) قد لا تُبرز تشابهًا حتى لو تشابهت بنيتها، لذا اقرأ الزوج قبل القرار دائمًا.</div>
+      </section>
+
+      <!-- ============ 14. KNOWN ISSUES ============ -->
+      <section class="card" id="issues">
+        <h2><span class="idx">14</span> مسائل معروفة</h2>
+        <p class="lead">مسألتان حقيقيتان في البناء الحالي، موثّقتان كما هما دون تغيير في المنصة.</p>
+
+        <h3>1) نافذة الضعف — تضخّم النسب في الوضع العام</h3>
+        <div class="note err">
+          <p style="margin-top:0"><b>العَرَض:</b> عند اختيار «Supervisor — all in scope» تعرض لوحة الضعف نسبًا مضخَّمة للأقسام (تتجاوز 100%).</p>
+          <p><b>السبب:</b> دالة <code>Logic.groupSectionAverages</code> تجمع النقاط المحصَّلة (<code>earned</code>) عبر كل تقارير الطالب، بينما تُضيف وزن القسم مرة واحدة فقط لكل طالب، فيخرج الناتج أكبر من الحقيقة.</p>
+          <p style="margin-bottom:0"><b>ما نوصي به:</b> اعتمد على عرض <b>الطالب الواحد</b> في نافذة الضعف (القسم 8)، وعلى نافذة <b>التحليل</b> (القسم 7) التي تحسب المتوسطات بشكل صحيح. الوضع العام للوحة الضعف غير موثوق حتى يُصلح.</p>
+        </div>
+
+        <h3>2) استقبال الملفات — تعارض بين القائمة والصلاحية</h3>
+        <div class="note err">
+          <p style="margin-top:0"><b>العَرَض:</b> يظهر «Receive files» في قائمة المشرف، لكن الضغط عليه يعرض «You are not allowed to open this section».</p>
+          <p><b>السبب:</b> خريطة الصلاحيات <code>VIEW_PERM.staff</code> لا تتضمّن <code>toff</code>، مع أن قائمة التنقّل تُدرجه للمشرف.</p>
+          <p style="margin-bottom:0"><b>ما نوصي به:</b> نفّذ استقبال الملفات من حساب مسؤول المنصة (المدير) الذي يملك صلاحية الوصول، أو أصلح الخريطة في نسخة المنصة إن أردت أن يستقبله المشرف مباشرة.</p>
+        </div>
+      </section>
+
+      <!-- ============ 15. FAQ ============ -->
+      <section class="card" id="faq">
+        <h2><span class="idx">15</span> أسئلة شائعة</h2>
+        <p class="lead">إجابات دقيقة عن أكثر ما يواجهه المشرف.</p>
+        <details class="faq"><summary>كيف يُسند التقرير إليّ؟</summary><div class="a">يُسند تلقائيًّا حسب نطاقك (المجموعة/المستشفى/الورديّة/المؤسسة) عند تسليم الطالب. التقرير يظهر تحت اسمك في الترويسة وفي الجداول.</div></details>
+        <details class="faq"><summary>لماذا لا يرى الطالب درجته داخل القسم؟</summary><div class="a">النظام لا يعرض النقاط داخل الأقسام؛ تُجمع كلها في التقرير النهائي حسب الأوزان، وتظهر للطالب في تقريره النهائي.</div></details>
+        <details class="faq"><summary>ما الفرق بين «التحليل» و«نافذة الضعف»؟</summary><div class="a">التحليل يحسب متوسطات الأقسام بشكل صحيح على مستوى نطاقك. نافذة الضعف مخصّصة لإبراز الأقسام الضعيفة، لكن اعتمد فيها على عرض الطالب الواحد (انظر القسم 14).</div></details>
+        <details class="faq"><summary>ماذا يعني «Duplicate check pending — the grade is held»؟</summary><div class="a">أن النظام رصد تشابهًا بين تقريرين دون حسم، والدرجة موقوفة ريثما تراجع الزوج وتقرّر (تأكيد تكرار أو نفيه).</div></details>
+        <details class="faq"><summary>هل يمكنني إعادة درجة أو تعديلها؟</summary><div class="a">نعم، من نافذة المراجعة عبر «Reassign final score»، كما يمكن فتح القسم للطالب («Unlock for redo») أو حذف التسليم.</div></details>
+        <details class="faq"><summary>لماذا يظهر «Central sync: not configured»؟</summary><div class="a">المزامنة السحابية غير مفعّلة في هذه النسخة؛ البيانات محليّة على الجهاز. نقل البيانات بين الأجهزة يكون عبر النسخ الاحتياطي أو ملفات الاستقبال.</div></details>
+      </section>
+
+      <!-- ============ 16. QUIZ ============ -->
+      <section class="card" id="quiz">
+        <h2><span class="idx">16</span> اختبر نفسك</h2>
+        <p class="lead">خمسة أسئلة فحص سريع لمهام المشرف. اختر إجابة لتعرف صحّتها فورًا.</p>
+        <div class="quiz" id="quizbox">
+          <div class="q" data-key="a">
+            <div class="qt">1) كيف يصل تقرير الطالب إلى المشرف؟</div>
+            <label class="opt"><input type="radio" name="q1" value="a"><span>يُسند تلقائيًّا إلى مشرف نطاق الطالب — Auto-assigned by scope.</span></label>
+            <label class="opt"><input type="radio" name="q1" value="b"><span>يرسله الطالب يدويًّا بالبريد لكل مشرف.</span></label>
+            <label class="opt"><input type="radio" name="q1" value="c"><span>يُسند إلى مسؤول المنصة فقط.</span></label>
+            <label class="opt"><input type="radio" name="q1" value="d"><span>لا يُسند إلى أحد حتى يطلبه المشرف.</span></label>
+            <div class="expl">الإجابة الصحيحة: <b>أ</b> — الإسناد تلقائي وفق نطاق المشرف.</div>
+          </div>
+          <div class="q" data-key="b">
+            <div class="qt">2) أي نافذة تعطي متوسطات الأقسام الصحيحة للمقارنة؟</div>
+            <label class="opt"><input type="radio" name="q2" value="a"><span>نافذة الضعف بوضع «كل الطلاب».</span></label>
+            <label class="opt"><input type="radio" name="q2" value="b"><span>نافذة التحليل (Analysis).</span></label>
+            <label class="opt"><input type="radio" name="q2" value="c"><span>جدول التقارير.</span></label>
+            <label class="opt"><input type="radio" name="q2" value="d"><span>لوحة كشف التشابه.</span></label>
+            <div class="expl">الإجابة الصحيحة: <b>ب</b> — التحليل يحسب المتوسطات بشكل صحيح؛ وضع «كل الطلاب» في نافذة الضعف غير موثوق.</div>
+          </div>
+          <div class="q" data-key="c">
+            <div class="qt">3) عند أي عدد غيابات يُعطى «Final warning»؟</div>
+            <label class="opt"><input type="radio" name="q3" value="a"><span>غياب واحد.</span></label>
+            <label class="opt"><input type="radio" name="q3" value="b"><span>غيابان.</span></label>
+            <label class="opt"><input type="radio" name="q3" value="c"><span>ثلاثة فأكثر.</span></label>
+            <label class="opt"><input type="radio" name="q3" value="d"><span>خمسة فأكثر.</span></label>
+            <div class="expl">الإجابة الصحيحة: <b>ج</b> — 3 فأكثر = Final warning، و2 = First warning، و1 = Monitoring.</div>
+          </div>
+          <div class="q" data-key="a">
+            <div class="qt">4) على ماذا تُحتسب إحصاءات نافذة تحليل الأسئلة؟</div>
+            <label class="opt"><input type="radio" name="q4" value="a"><span>بنود الأسئلة في الأقسام المقفلة ذات الدرجة الرقمية، وبحد أدنى 5 استجابات للبند.</span></label>
+            <label class="opt"><input type="radio" name="q4" value="b"><span>على عدد مرات فتح الطالب للنافذة.</span></label>
+            <label class="opt"><input type="radio" name="q4" value="c"><span>على كل بند حتى بلا استجابات.</span></label>
+            <label class="opt"><input type="radio" name="q4" value="d"><span>على الدرجات النهائية فقط.</span></label>
+            <div class="expl">الإجابة الصحيحة: <b>أ</b> — تُحتسب البنود فوق الأقسام المقفلة وذات الدرجة الرقمية، والحد الأدنى 5 استجابات.</div>
+          </div>
+          <div class="q" data-key="d">
+            <div class="qt">5) ماذا تعرض لوحة كشف التشابه عند رصد زوج متشابه؟</div>
+            <label class="opt"><input type="radio" name="q5" value="a"><span>تحذف الدرجة فورًا بلا مراجعة.</span></label>
+            <label class="opt"><input type="radio" name="q5" value="b"><span>ترسل تنبيهًا للطالب فقط.</span></label>
+            <label class="opt"><input type="radio" name="q5" value="c"><span>لا تعرض شيئًا حتى تكتب أنت التقرير.</span></label>
+            <label class="opt"><input type="radio" name="q5" value="d"><span>الطالبان والأسبوع والنسب وحالة «قيد الفحص — الدرجة موقوفة» مع زر المقارنة والقرار.</span></label>
+            <div class="expl">الإجابة الصحيحة: <b>د</b> — تعرض الزوج والنسب والحالة، وتنتظر قرارك: تأكيد تكرار أو نفي.</div>
+          </div>
+          <div class="quizbar">
+            <button class="reveal-btn" id="quizReset">إعادة المحاولة</button>
+            <span class="scorebig" id="quizScore">النتيجة: 0 / 5</span>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        ورشة تدريب المشرفين — منصة التدريب السريري. كل الشروح مستخرجة من البناء العامل للمنصة، وكل الصور لقطات حقيقية من نسخة تجريبية ببيانات وصفية.
+      </footer>
+
+    </div>
+  </main>
+</div>
+
+<div id="lb" onclick="if(event.target===this)closeLB()"><button class="x" onclick="closeLB()">إغلاق</button><img id="lbi" alt=""></div>
+
+<script>
+/* progress bar */
+(function(){
+  var p=document.getElementById('progress');
+  function on(){ var h=document.documentElement; var max=h.scrollHeight-h.clientHeight; var y=h.scrollTop||document.body.scrollTop; p.style.width=(max>0?(y/max*100):0)+'%'; }
+  window.addEventListener('scroll',on,{passive:true}); on();
+})();
+
+/* nav active */
+(function(){
+  var links=[].slice.call(document.querySelectorAll('#nav a'));
+  var map={}; links.forEach(function(a){ var id=a.getAttribute('href').slice(1); var s=document.getElementById(id); if(s) map[id]=a; });
+  var obs=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ links.forEach(function(l){l.classList.remove('active');}); var a=map[e.target.id]; if(a) a.classList.add('active'); } });
+  },{rootMargin:"-45% 0px -50% 0px"});
+  Object.keys(map).forEach(function(id){ obs.observe(document.getElementById(id)); });
+})();
+
+/* animated counters */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.stat b[data-count]'));
+  els.forEach(function(el){
+    var end=parseInt(el.getAttribute('data-count'),10); var t0=null;
+    function step(ts){ if(!t0)t0=ts; var d=ts-t0; var p=Math.min(d/900,1); el.textContent=Math.round(end*p); if(p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  });
+})();
+
+/* reveal buttons */
+window.reveal=function(btn,id){ var el=document.getElementById(id); if(!el) return; el.classList.toggle('on'); btn.textContent=el.classList.contains('on')?'إخفاء التفاصيل':btn.getAttribute('data-label')||'عرض التفاصيل'; };
+
+/* tabs */
+(function(){
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.tab'); if(!b) return;
+    var group=b.parentElement; if(!group) return;
+    [].slice.call(group.querySelectorAll('.tab')).forEach(function(x){x.classList.remove('on');});
+    b.classList.add('on');
+    var t=b.getAttribute('data-t'); if(!t) return;
+    [].slice.call(group.parentElement.querySelectorAll('.tabpanes .tp')).forEach(function(p){ p.classList.toggle('on', p.id===t); });
+  });
+})();
+
+/* lightbox */
+(function(){
+  window.openLB=function(src){ var l=document.getElementById('lb'), i=document.getElementById('lbi'); i.src=src; l.classList.add('on'); document.body.style.overflow='hidden'; };
+  window.closeLB=function(){ document.getElementById('lb').classList.remove('on'); document.body.style.overflow=''; };
+  document.querySelectorAll('.shot img').forEach(function(im){ im.style.cursor='zoom-in'; im.addEventListener('click',function(){ window.openLB(im.src); }); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') window.closeLB(); });
+})();
+
+/* self-quiz */
+(function(){
+  var box=document.getElementById('quizbox'); if(!box) return;
+  var qs=[].slice.call(box.querySelectorAll('.q'));
+  var scoreEl=document.getElementById('quizScore');
+  function update(){
+    var correct=0;
+    qs.forEach(function(q){
+      var key=q.getAttribute('data-key');
+      var sel=q.querySelector('input:checked');
+      q.querySelectorAll('.opt').forEach(function(o){ o.classList.remove('pick-ok','pick-bad'); });
+      if(sel){
+        q.classList.add('done');
+        var ok=sel.value===key;
+        sel.closest('.opt').classList.add(ok?'pick-ok':'pick-bad');
+        q.querySelectorAll('.opt').forEach(function(o){ var r=o.querySelector('input'); if(r&&r.value===key) o.classList.add('pick-ok'); });
+        if(ok) correct++;
+      } else { q.classList.remove('done'); }
+    });
+    scoreEl.textContent='النتيجة: '+correct+' / '+qs.length;
+  }
+  box.addEventListener('change',function(e){ if(e.target.matches('input[type=radio]')) update(); });
+  var rst=document.getElementById('quizReset');
+  if(rst) rst.addEventListener('click',function(){
+    box.querySelectorAll('input[type=radio]').forEach(function(r){r.checked=false;});
+    qs.forEach(function(q){ q.classList.remove('done'); });
+    update();
+  });
+  update();
+})();
+</script>
+</body>
+</html>
