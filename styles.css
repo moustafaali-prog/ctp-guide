@@ -145,6 +145,7 @@ img { max-width: 100%; height: auto; display: block; }
   z-index: var(--z-sticky);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 var(--space-6);
   gap: var(--space-4);
 }
@@ -210,10 +211,16 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* Main Content */
 .main-content {
-  padding: calc(var(--header-height) + var(--space-6)) var(--space-8) var(--space-10);
+  padding: calc(var(--header-height) + var(--space-6)) var(--space-6) var(--space-10);
   max-width: var(--max-width);
   margin: 0 auto;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: calc(var(--header-height) + var(--space-4)) var(--space-4) var(--space-8);
+  }
 }
 
 /* ========================================
@@ -238,16 +245,22 @@ p { margin: var(--space-3) 0; }
 ul, ol { padding-right: var(--space-6); margin: var(--space-3) 0; }
 li { margin: var(--space-2) 0; }
 
-/* Steps List */
-.steps { counter-reset: step; list-style: none; padding-right: 0; }
+/* Ensure list markers stay aligned with text in RTL */
+ol { list-style-position: inside; }
+ul { list-style-position: inside; }
+
+/* Steps List - Fixed numbering alignment for RTL */
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
 .steps > li {
   position: relative;
-  padding: var(--space-4) var(--space-5) var(--space-4) var(--space-12);
+  padding: var(--space-4) var(--space-5) var(--space-4) 70px;
   margin: var(--space-3) 0;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--rad-lg);
   transition: all var(--dur-fast) var(--ease);
+  display: block;
+  min-height: 48px;
 }
 .steps > li:hover { border-color: var(--teal-light); box-shadow: var(--shadow-md); }
 .steps > li::before {
@@ -257,12 +270,14 @@ li { margin: var(--space-2) 0; }
   right: var(--space-4);
   top: 50%;
   transform: translateY(-50%);
-  width: 36px; height: 36px;
+  width: 40px; height: 40px;
+  min-width: 40px; min-height: 40px;
   background: var(--navy);
   color: #fff;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; font-size: var(--fs-sm);
+  line-height: 1;
 }
 
 /* ========================================
@@ -779,3 +794,117 @@ kbd {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--muted-light); }
+
+/* ========================================
+   Premium Responsive Enhancements
+   ======================================== */
+
+/* Hero section responsive */
+@media (max-width: 640px) {
+  .hero h1 { font-size: var(--fs-3xl); }
+  .hero p { font-size: var(--fs-base); max-width: 100%; }
+  .hero-meta { flex-direction: column; align-items: flex-end; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+}
+
+/* Steps list responsive padding */
+@media (max-width: 640px) {
+  .steps > li {
+    padding: var(--space-3) var(--space-4) var(--space-3) 60px;
+    min-height: 44px;
+  }
+  .steps > li::before {
+    width: 36px; height: 36px;
+    font-size: var(--fs-xs);
+  }
+}
+
+/* Table responsive */
+@media (max-width: 768px) {
+  .table-wrap { font-size: var(--fs-xs); }
+  .table-wrap table { font-size: var(--fs-xs); }
+  th, td { padding: var(--space-2) var(--space-3); }
+}
+
+/* Cards responsive padding */
+@media (max-width: 768px) {
+  .card { padding: var(--space-4); margin: var(--space-4) 0; }
+  .figure { margin: var(--space-4) 0; }
+  .figure img { border-radius: var(--rad-md); }
+}
+
+/* Screenshot frame responsive */
+.screenshot-frame { border-radius: var(--rad-md); overflow: hidden; }
+.screenshot-frame img { border-radius: 0; width: 100%; height: auto; display: block; }
+
+/* Quiz responsive */
+@media (max-width: 640px) {
+  .quiz { padding: var(--space-4); }
+  .quiz-options { grid-template-columns: 1fr; }
+  .quiz-option { flex-direction: column; align-items: flex-start; gap: var(--space-2); padding: var(--space-3); }
+  .quiz-option input { margin-top: 4px; }
+}
+
+/* KPI responsive */
+@media (max-width: 640px) {
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+  .kpi-value { font-size: var(--fs-3xl); }
+}
+
+/* Sidebar mobile */
+@media (max-width: 1024px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .main-content { padding-left: 0; padding-right: 0; }
+}
+
+/* Ensure Arabic text renders well */
+body {
+  text-align: right;
+}
+
+/* Fix any list number floating - ensure ol markers align */
+ol { 
+  list-style-position: inside;
+  margin-right: 0;
+}
+
+/* Fix figure captions */
+.figure-caption { 
+  text-align: right; 
+  direction: rtl;
+}
+
+/* Better spacing for sections */
+section { 
+  scroll-margin-top: calc(var(--header-height) + 20px); 
+}
+
+/* Premium card hover effects */
+.card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--teal-light);
+}
+
+/* Notice box RTL border */
+.notice { 
+  border-right: 4px solid; 
+  border-left: 0;
+}
+
+/* Progress ring text for RTL */
+.progress-ring-text { 
+  direction: ltr; 
+  unicode-bidi: bidi-override;
+}
+
+/* Accordion icon positioning for RTL */
+.accordion-trigger { 
+  padding-right: var(--space-5); 
+  padding-left: 40px; 
+}
