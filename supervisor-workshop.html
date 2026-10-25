@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ورشة تدريب المشرفين — منصة التدريب السريري</title>
+  <meta name="description" content="مسار عملي من تسليم الطالب إلى قرار المشرف: الإسناد التلقائي، تسع نوافذ إشرافية، مراجعة كل تقرير، كشف التشابه">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <aside class="sidebar" role="navigation" aria-label="جدول محتويات ورشة المشرفين">
+      <div class="sidebar-title">محتويات الورشة</div>
+      <nav class="toc-nav">
+        <ul class="toc-list" id="tocList"></ul>
+      </nav>
+    </aside>
+
+    <main class="main-content" role="main">
+      <button class="mobile-menu-btn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="tocList">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="sidebar-overlay" aria-hidden="true"></div>
+
+      <header class="site-header" role="banner">
+        <div class="logo">
+          <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28 4C37.3 4 48 7.8 48 12.5C48 33.5 28 49.1 28 50.6C28 49.1 8 33.5 8 12.5C8 7.8 18.6 4 28 4Z" fill="#0891B2"/>
+            <rect x="25" y="16" width="6" height="18" rx="2" fill="white"/>
+            <rect x="19" y="22" width="18" height="6" rx="2" fill="white"/>
+            <path d="M6 31H16L20 23L24 39L28 13L33 35L36 29L39 31H50" stroke="#67E8F9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span>CTP Supervisor Workshop</span>
+        </div>
+        <nav aria-label="التنقل الرئيسي">
+          <a href="index.html">الدليل الكامل</a>
+          <a href="student-workshop.html">ورشة الطلبة</a>
+          <a href="supervisor-workshop.html" class="active">ورشة المشرفين</a>
+        </nav>
+        <div class="header-actions">
+          <a href="index.html" class="btn btn-secondary">الدليل الكامل</a>
+          <a href="student-workshop.html" class="btn btn-secondary">ورشة الطلبة</a>
+          <button class="btn btn-print btn-ghost" aria-label="طباعة أو حفظ ك PDF">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            طباعة
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <span class="hero-kicker">ورشة تدريب المشرفين — التشغيل والمراجعة</span>
+          <h1 id="hero-title">كيف تُدير تقارير طلابك على المنصة</h1>
+          <p class="hero-lead">مسار عملي من تسليم الطالب إلى قرار المشرف: الإسناد التلقائي، ثم تسع نوافذ إشرافية، وقراءة الأرقام، ومراجعة كل تقرير، وصولًا إلى كشف التشابه. كل نافذة مع صورة حقيقية وشرح لما تفعله وكيف تستجيب.</p>
+          <div class="kpi-grid" style="margin-top: 32px;">
+            <div class="kpi-card"><div class="kpi-value" data-target="9">0</div><div class="kpi-label">نوافذ إشرافية</div></div>
+            <div class="kpi-card"><div class="kpi-value" data-target="11">0</div><div class="kpi-label">قسمًا في كل تقرير</div></div>
+            <div class="kpi-card"><div class="kpi-value" data-target="100">0</div><div class="kpi-label">درجة موزّعة</div></div>
+            <div class="kpi-card"><div class="kpi-value" data-target="15">0</div><div class="kpi-label">أسبوعًا في الفصل</div></div>
+          </div>
+          <div class="hero-actions">
+            <button class="btn btn-gold btn-lg btn-print"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> طباعة الورشة / حفظ PDF</button>
+            <a href="#overview" class="btn btn-secondary btn-lg">ابدأ الورشة</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 1: دورك على المنصة
+           ======================================== -->
+      <section id="overview" aria-labelledby="overview-title">
+        <h2 id="overview-title">1. دورك على المنصة</h2>
+        <p class="lead">الطالب يكتب التقرير، والمنصة تحسب الدرجة، ودورك أن تراجع وتقرّر.</p>
+        <p>بعد أن يسلّم الطالب تقرير حالته الأسبوعي (أحد عشر قسمًا بصيغة «Pediatric Daily Clinical Report»)، يُسند التقرير تلقائيًّا إلى المشرف المسؤول عن نطاقه. تفتح لك المنصة واجهة إشرافية واحدة تجمع بيانات طلابك: الدرجات، الحضور، التحليل، الضعف، تحليل الأسئلة، بيانات البحث، ومراجعة كل تقرير على حدة، ثم كشف التشابه بين التقارير.</p>
+
+        <div class="kpi-grid">
+          <div class="kpi-card"><h4>تقييم موحّد</h4><p>درجة تلقائية موزّعة بالأوزان لكل طالب في كل أسبوع، ودرجة نهائية قابلة للتعديل عند الحاجة.</p></div>
+          <div class="kpi-card"><h4>متابعة حيّة</h4><p>لوحة تحكم ورسوم تلخّص التسليم والحضور ومستوى الأداء على مستوى نطاقك.</p></div>
+          <div class="kpi-card"><h4>قرار موثّق</h4><p>لكل تقرير مراجعة (معتمدة / تحت المراجعة / تحتاج تعديلًا) وملاحظة تصل للطالب.</p></div>
+          <div class="kpi-card"><h4>حماية الأصالة</h4><p>كشف تشابه آلي بين تقارير الطلاب ويعرض «قيد الفحص — الدرجة موقوفة» حتى تقرر.</p></div>
+        </div>
+
+        <div class="notice notice-info">
+          <div class="notice-content"><strong>المبدأ:</strong> كل رقم تراه في هذه النوافذ مشتق من تقرير فعلي سلّمه طالب. لا شيء مُقدَّر أو مُقدَّر يدويًّا؛ المنصة تحسب، وأنت تقرأ وتقرّر.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 2: النطاق والإسناد
+           ======================================== -->
+      <section id="scope" aria-labelledby="scope-title">
+        <h2 id="scope-title">2. النطاق والإسناد</h2>
+        <p class="lead">قبل أي نافذة، افهم من هم طلابك؛ فكل النوافذ تُبنى على نطاقك أنت.</p>
+        <p>لكل مشرف <strong>نطاق (scope)</strong> يحدّده مسؤول المنصة، وقد يتكوّن من أي مزيج من: المجموعات، والمستشفيات، والورديّة، والمؤسسة. ونطاق المشرف يُقيّد كل ما تراه:</p>
+        <ul>
+          <li><strong>لوحة التحكم والجداول:</strong> تعرض طلاب نطاقك فقط.</li>
+          <li><strong>الإسناد:</strong> عند تسليم الطالب يُسند التقرير تلقائيًّا إلى مشرفه عبر منطق النظام.</li>
+          <li><strong>بيانات البحث والتحليل:</strong> تُحسب فوق تقارير طلابك فقط.</li>
+        </ul>
+        <div class="notice notice-warning">
+          <div class="notice-content"><strong>لماذا يهمّك هذا؟</strong> إن اختلفت الأرقام عمّا تتوقّع، فقد يكون السبب أن النطاق يشمل أكثر من مجموعة أو ورديّة. عد إلى إعدادات النطاق قبل تفسير أي رقم.</div>
+        </div>
+
+        <h3>ما تراه في شريط التنقّل</h3>
+        <p>قائمة المشرف تسع نوافذ: <code>Dashboard</code>، و<code>Grades</code>، و<code>Report Table</code>، و<code>Attendance</code>، و<code>Similarity</code>، و<code>Analysis</code>، و<code>Weakness</code>، و<code>Question Analysis</code>، و<code>Receive files</code>. ولا يظهر لك «Admin Hub» ولا «Backup / Restore» لأنهما محصوران بمسؤول المنصة.</p>
+      </section>
+
+      <!-- ========================================
+           SECTION 3: لوحة التحكم (Dashboard)
+           ======================================== -->
+      <section id="dashboard" aria-labelledby="dashboard-title">
+        <h2 id="dashboard-title">3. لوحة التحكم (Dashboard)</h2>
+        <p class="lead">نقطة البداية: صورة سريعة عن عدد الطلاب والتقارير وحالة المزامنة.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s02_dashboard.png" alt="لوحة تحكم المشرف"></div>
+          <figcaption class="figure-caption"><strong>الشكل 1:</strong> لوحة تحكم المشرف مع عدّاد «كل الطلاب»، وبطاقة تبليغ، وحالة المزامنة.</figcaption>
+        </figure>
+
+        <h3>ماذا تقرأ فيها</h3>
+        <div class="accordion" data-multi>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="true" aria-controls="dash1">
+              الشريط العلوي
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="dash1" style="max-height: 300px;">
+              <div class="inner">
+                <p>اسم المشرف الظاهر في كل نافذة، ومنتقي «كل الطلاب / الطلاب في نطاقي».</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="dash2">
+              حالة المزامنة
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="dash2">
+              <div class="inner">
+                <p>«Central sync: not configured» تعني أن المزامنة السحابية غير مفعّلة، والبيانات محليّة على الجهاز.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="dash3">
+              صندوق الصادر (Outbox)
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="dash3">
+              <div class="inner">
+                <p><code>Outbox</code>: عدد التسليمات التي تنتظر المزامنة (كلها / معلّقة / متزامنة).</p>
+                <div class="notice">
+                  <div class="notice-content"><strong>ملاحظة تشغيل:</strong> البيانات تُخزَّن على الجهاز نفسه (IndexedDB مع نسخة في localStorage). تعذُّر المزامنة لا يمنع العمل، لكنه يعني أن البيانات لا تنتقل إلى جهاز آخر إلا عبر ملفات النسخ/الاستقبال.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 4: جدول التقارير
+           ======================================== -->
+      <section id="reporttab" aria-labelledby="reporttab-title">
+        <h2 id="reporttab-title">4. جدول التقارير (Report Table)</h2>
+        <p class="lead">النافذة الجوهرية: كل تقرير لكل قسم، حقلًا بحقل.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s03_report_table.png" alt="جدول التقارير التفصيلي"></div>
+          <figcaption class="figure-caption"><strong>الشكل 2:</strong> «Section-by-section detail table»: صفوف الطلاب × الأقسام الأحد عشر، مع جواب الطالب والنقاط.</figcaption>
+        </figure>
+        <p>يعرض الجدول ما كتبه كل طالب فعليًّا في كل قسم، والنقاط التي نالها مقابل كل بند. استخدمه عندما تريد التحقّق من جواب بعينه قبل قرار المراجعة.</p>
+        <div class="notice">
+          <div class="notice-content"><strong>نصيحة:</strong> ابدأ من الطلاب ذوي الدرجات المنخفضة، وافتح التقرير الكامل من نافذة المراجعة (القسم 12) لترى الحالة كما رآها الطالب.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 5: الدرجات
+           ======================================== -->
+      <section id="grades" aria-labelledby="grades-title">
+        <h2 id="grades-title">5. الدرجات (Grades)</h2>
+        <p class="lead">كيف تتحوّل إجابات الطالب إلى درجة من 100 ورمز حرفي.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s04_grades.png" alt="نافذة الدرجات"></div>
+          <figcaption class="figure-caption"><strong>الشكل 3:</strong> «Grades / Weekly Tickets»: صف لكل طالب بعدد التقارير، والتصدير إلى CSV وExcel.</figcaption>
+        </figure>
+
+        <h3>كيف تُحسب الدرجة</h3>
+        <p>لكل قسم وزن من مئة، ودرجته النهائية تُحسب من نسبة النقاط المكتسبة داخل القسم مضروبة في وزنه، ثم تُجمع الأقسام:</p>
+        <div class="two-col">
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>القسم</th><th class="num">الوزن</th></tr></thead>
+              <tbody>
+                <tr><td>التعريفية (ident)</td><td class="num">8</td></tr>
+                <tr><td>الشكوى الرئيسية (cc)</td><td class="num">5</td></tr>
+                <tr><td>العلامات الحيوية (vit)</td><td class="num">12</td></tr>
+                <tr><td>القياسات (anth)</td><td class="num">8</td></tr>
+                <tr><td>تاريخ المرض الحالي (hpi)</td><td class="num">10</td></tr>
+                <tr><td>التشخيص التمهيدي (promo)</td><td class="num">8</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>القسم</th><th class="num">الوزن</th></tr></thead>
+              <tbody>
+                <tr><td>التاريخ المرضي (hist)</td><td class="num">5</td></tr>
+                <tr><td>الأدوية (meds)</td><td class="num">8</td></tr>
+                <tr><td>الفحص السريري (pe)</td><td class="num">14</td></tr>
+                <tr><td>التحاليل (labs)</td><td class="num">10</td></tr>
+                <tr><td>خطة الرعاية (ncp)</td><td class="num">12</td></tr>
+                <tr style="font-weight:700;"><td><strong>المجموع</strong></td><td class="num"><strong>100</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <p>معادلة الدرجة: <code>weightedScore</code> تجمع لكل قسم <code>weight × (earned / total)</code>. الرمز الحرفي يأتي من الدرجة النهائية وفق السلّم:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>الدرجة</th><th>المدى</th><th>الرمز</th><th>الوصف</th></tr></thead>
+            <tbody>
+              <tr><td class="num">90 وما فوق</td><td class="num">90–100</td><td>A</td><td>Excellent</td></tr>
+              <tr><td class="num">80 – 89</td><td class="num">80–89</td><td>B</td><td>Very Good</td></tr>
+              <tr><td class="num">70 – 79</td><td class="num">70–79</td><td>C</td><td>Good</td></tr>
+              <tr><td class="num">60 – 69</td><td class="num">60–69</td><td>D</td><td>Acceptable</td></tr>
+              <tr><td class="num">50 – 59</td><td class="num">50–59</td><td>E</td><td>Weak</td></tr>
+              <tr><td class="num">أقل من 50</td><td class="num"><50</td><td>F</td><td>Fail</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>الدرجة مقابل «المهارات العملية»</h3>
+        <p>توجد في نافذة المراجعة بطاقة «Official practical marks» تفصل المهارات العملية:</p>
+        <ul>
+          <li>التقييم السريري المستمر <strong>/40</strong></li>
+          <li>الاختبار العملي الداخلي <strong>/20</strong></li>
+          <li>المجموع = <strong>60</strong> نقطة</li>
+        </ul>
+        <p>مع اقتراح تلقائي للحقل الأول من درجة المنصة (الدرجة × 0.4).</p>
+      </section>
+
+      <!-- ========================================
+           SECTION 6: الحضور
+           ======================================== -->
+      <section id="attendance" aria-labelledby="attendance-title">
+        <h2 id="attendance-title">6. الحضور (Attendance)</h2>
+        <p class="lead">جدول الحضور لكل أسبوع، وقواعد الإنذار، ودرجة الحضور من 5.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s05_attendance.png" alt="نافذة الحضور"></div>
+          <figcaption class="figure-caption"><strong>الشكل 4:</strong> نافذة «Attendance»: صف لكل طالب وعمود لكل أسبوع، مع نسبة الحضور ودرجة الحضور والحالة.</figcaption>
+        </figure>
+
+        <h3>رموز الحضور</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>الرمز</th><th>المعنى</th></tr></thead>
+            <tbody>
+              <tr><td><kbd>P</kbd></td><td>حاضر (Present)</td></tr>
+              <tr><td><kbd>X</kbd></td><td>غائب (Absent)</td></tr>
+              <tr><td><kbd>E</kbd></td><td>غائب بعذر (Excused)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>حالة المتابعة (تحسب تلقائيًّا)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>عدد الغيابات</th><th>الحالة</th></tr></thead>
+            <tbody>
+              <tr><td class="num">صفر</td><td>Satisfactory</td></tr>
+              <tr><td class="num">غياب واحد</td><td>Monitoring</td></tr>
+              <tr><td class="num">غيابان</td><td>First warning</td></tr>
+              <tr><td class="num">ثلاثة فأكثر</td><td>Final warning</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>احتساب العلامة</h3>
+        <p>لكل محاضرة متتبَّعة 5 نقاط: حضور = 5، إذن بعُذر = 2.5، غياب = 0. ويُحسب الحضور للورديّة المسؤولة عن الطالب (صباحي/مسائي).</p>
+      </section>
+
+      <!-- ========================================
+           SECTION 7: التحليل (Analysis)
+           ======================================== -->
+      <section id="analysis" aria-labelledby="analysis-title">
+        <h2 id="analysis-title">7. التحليل (Analysis)</h2>
+        <p class="lead">صورة سريعة لأداء نطاقك مقابل الأقسام، بقراءة صحيحة للأرقام.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s06_analysis.png" alt="نافذة التحليل"></div>
+          <figcaption class="figure-caption"><strong>الشكل 5:</strong> «Analysis»: متوسطات الأقسام فوق تقارير طلابك، مع نطاقات التقييم.</figcaption>
+        </figure>
+        <p>تعرض النافذة متوسط كل قسم، ونطاق مستواه (خبرة/إنجاز/تطوير)، لتعرف أين يقف نطاقك بسرعة قبل الغوص في التقارير الفردية.</p>
+        <div class="notice notice-success">
+          <div class="notice-content"><strong>فرق مهم:</strong> نافذة التحليل تحسب المتوسطات بشكل صحيح على مستوى كل طالب، فهي مرجعك الموثوق للمقارنة بين الأقسام.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 8: نافذة الضعف (Weakness)
+           ======================================== -->
+      <section id="weakness" aria-labelledby="weakness-title">
+        <h2 id="weakness-title">8. نافذة الضعف (Weakness)</h2>
+        <p class="lead">لوحة الأقسام الضعيفة باللون: أحمر ضعيف، كهرماني يحتاج عملًا، أخضر متين.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s07_weakness.png" alt="نافذة الضعف"></div>
+          <figcaption class="figure-caption"><strong>الشكل 6:</strong> «Weakness board (by section)» مع اختيار طالب واحد: متوسطات الأقسام ونسبها للطالب المحدَّد.</figcaption>
+        </figure>
+
+        <h3>كيف تقرأها</h3>
+        <ul>
+          <li>اختر مشرفًا أو طالبًا واحدًا ثم اضغط «Show».</li>
+          <li>الألوان: أقل من 50% ضعيف، 50–69% يحتاج عملًا، 70% فأكثر متين.</li>
+        </ul>
+
+        <div class="notice notice-error">
+          <div class="notice-content"><strong>مسألة معروفة (لا تعتمد على وضع «كل الطلاب»):</strong> عند اختيار الوضع العام «Supervisor — all in scope» تظهر نسب الأقسام <strong>مضخَّمة</strong> (أرقام تتجاوز 100%)، لأن دالة التجميع تجمع النقاط المحصَّلة عبر كل تقارير الطالب بينما تُحتسب وزن القسم مرة واحدة فقط. النتيجة الصحيحة تظهر عند تحديد <strong>طالب واحد</strong>، وهي الموصى بها.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 9: تحليل الأسئلة
+           ======================================== -->
+      <section id="items" aria-labelledby="items-title">
+        <h2 id="items-title">9. تحليل الأسئلة (Question Analysis)</h2>
+        <p class="lead">جودة بنود التقرير: أي الأسئلة صعبة، وأيّها لا تميّز بين الطلاب.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s08_question_analysis.png" alt="تحليل أسئلة التقارير"></div>
+          <figcaption class="figure-caption"><strong>الشكل 7:</strong> «Question Analysis (Item Analysis)»: صعوبة كل بند ومعامل تمييزه فوق تقارير نطاقك.</figcaption>
+        </figure>
+
+        <p>تُحتسب الإحصاءات على بنود الأسئلة المطابقة في الأقسام المقفلة ذات الدرجة الرقمية، وتُعرض فقط للبنود التي بلغت الحد الأدنى من الاستجابات (5 استجابات). استخدمها لمعرفة البنود التي يخطئ فيها الجميع، أو التي لا تفرّق بين المتمكّن وغيره.</p>
+        <div class="notice notice-tip">
+          <div class="notice-content"><strong>لماذا تهمّ؟</strong> البند الذي يخطئ فيه الجميع قد يكون صياغته غامضة أو تعليمه ناقصًا — وهذا قرار تحسين تدريسي، لا قرار درجة.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 10: بيانات البحث
+           ======================================== -->
+      <section id="research" aria-labelledby="research-title">
+        <h2 id="research-title">10. بيانات البحث (Research Data)</h2>
+        <p class="lead">كل صف = تقرير واحد سلّمه طالب فعليًّا. ما تراه على الشاشة هو نفسه ما تُنزّله.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s09_research_data.png" alt="بيانات البحث"></div>
+          <figcaption class="figure-caption"><strong>الشكل 8:</strong> «Research dataset»: ثلاث ترويسات (القسم، اسم المتغيّر لـ SPSS، نص السؤال)، وعمودان لكل سؤال: الجواب والنقاط.</figcaption>
+        </figure>
+
+        <h3>كيف تقرأ الجدول</h3>
+        <ul>
+          <li><strong>ثلاثة صفوف ترويسة:</strong> الشريط الملوّن يسمّي القسم، ثم اسم المتغيّر، ثم نص السؤال كما كتبه النظام.</li>
+          <li><strong>عمودان لكل سؤال:</strong> <code>_ANS</code> جواب الطالب، و<code>_PTS</code> النقاط التي نالها.</li>
+          <li><strong>دلالة الأرقام:</strong> فراغ في عمود النقاط = بند غير مُقيَّم، و<code>0</code> = خطأ، وأي رقم آخر = النقاط المحصَّلة. الجنس 1 = ذكر و2 = أنثى، و<code>P</code> في ATTEND تعني حاضرًا.</li>
+        </ul>
+        <div class="notice notice-success">
+          <div class="notice-content"><strong>جاهز للتحليل:</strong> يمكنك تنزيل CSV لـ SPSS، أو مصنّف Excel (بورقة بيانات منفصلة)، أو ملف CSV مطابق تمامًا لما على الشاشة.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 11: استقبال الملفات
+           ======================================== -->
+      <section id="receive" aria-labelledby="receive-title">
+        <h2 id="receive-title">11. استقبال الملفات (Receive files)</h2>
+        <p class="lead">مسار التسليم دون اتصال: الطالب يُصدّر ملف تقريره، والمشرف يستقبله.</p>
+        <p>عندما يُنفّذ الطالب حالته على جهازه الخاص، يُصدّر ملف تقريره (به بصمة تحقّق checksum)، ثم يُسلّمه إليك عبر USB أو Bluetooth أو رسالة. عبر نافذة الاستقبال يتم فحص كل ملف قبل حفظه: الصيغة، والإصدار، والبصمة، ونطاق الأسبوع، وأن يكون الطالب في القائمة، واكتمال الأقسام الأحد عشر.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s10_receive_files.png" alt="نافذة استقبال الملفات"></div>
+          <figcaption class="figure-caption"><strong>الشكل 9:</strong> نافذة «Receive report files from students (offline)» كما تظهر لحساب مسؤول المنصة: زر اختيار الملفات، ووصف التحقق، وجدول النتائج بعد الاستيراد.</figcaption>
+        </figure>
+
+        <div class="notice notice-error">
+          <div class="notice-content"><strong>مسألة معروفة (صلاحية):</strong> تظهر «Receive files» في قائمة المشرف، لكن خريطة الصلاحيات لا تسمح للمشرف بفتحها؛ وعند الضغط عليها تظهر رسالة «You are not allowed to open this section.». الصورة أعلاه للنافذة الفعلية كما تُفتح من حساب <strong>مسؤول المنصة</strong>.</div>
+        </div>
+        <figure class="figure">
+          <div class="screenshot-frame" style="max-height: 300px;"><img src="assets/s11_receive_denied.png" alt="رسالة المنع للمشرف"></div>
+          <figcaption class="figure-caption"><strong>الشكل 10:</strong> الضغط على «Receive files» بحساب المشرف: تظهر رسالة المنع ولا تتغيّر النافذة.</figcaption>
+        </figure>
+
+        <div class="notice notice-warning">
+          <div class="notice-content"><strong>ماذا تفعل عمليًّا الآن؟</strong> إن كان التسليم دون اتصال مطلوبًا، يُستحسن أن ينفّذه حساب مسؤول المنصة، أو أن يُحلّ تناقض الصلاحية أولًا. البيانات المستوردة تظهر تلقائيًّا لدى المشرف المسؤول عن الطالب.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 12: مراجعة تقرير
+           ======================================== -->
+      <section id="review" aria-labelledby="review-title">
+        <h2 id="review-title">12. مراجعة تقرير (Review Report)</h2>
+        <p class="lead">من هنا تُصدر قرارك على تقرير واحد: مراجعة، وعلامات عملية، وإجراءات.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s12_report_review.png" alt="نافذة مراجعة تقرير"></div>
+          <figcaption class="figure-caption"><strong>الشكل 11:</strong> نافذة مراجعة تقرير مع الترويسة بالدرجة والمشرف، ثم التقرير الكامل وقرار المراجعة.</figcaption>
+        </figure>
+
+        <h3>عناصر النافذة</h3>
+        <div class="accordion" data-multi>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="true" aria-controls="rev1">
+              الترويسة
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="rev1" style="max-height: 200px;">
+              <div class="inner"><p>اسم الطالب، الأسبوع، الدرجة من 100، والمشرف المسند إليه التقرير.</p></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="rev2">
+              التقرير الكامل
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="rev2">
+              <div class="inner"><p>صيغة «Pediatric Daily Clinical Report» كما كتبها الطالب، مع «Full details table» لعرض Excel.</p></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="rev3">
+              مراجعة المشرف
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="rev3">
+              <div class="inner"><p>حالة المراجعة + ملاحظة قصيرة تظهر للطالب في صفحته وتقريره.</p></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="rev4">
+              العلامات العملية
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="rev4">
+              <div class="inner"><p>حقل «Ongoing /40» و«Internal exam /20» مع اقتراح تلقائي للحقل الأول.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <h3>قرار المراجعة</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>الاختيار</th><th>المعنى</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Under review</strong></td><td>قيد المراجعة — الحالة الافتراضية حتى تقرّر.</td></tr>
+              <tr><td><strong>Approved</strong></td><td>معتمد — قبلت التقرير كما هو.</td></tr>
+              <tr><td><strong>Needs revision</strong></td><td>يحتاج تعديلًا — مع ملاحظتك الموجَّهة للطالب.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>ماذا يفعل كل زر إجرائي؟</h3>
+        <ul>
+          <li><strong>Save review:</strong> يحفظ حالة المراجعة والملاحظة للطالب.</li>
+          <li><strong>Save practical marks:</strong> يحفظ العلامات العملية (المستمر/40 والامتحان/20).</li>
+          <li><strong>Reassign final score:</strong> يعدّل الدرجة النهائية (0–100) عند الحاجة.</li>
+          <li><strong>Unlock for redo:</strong> يزيل قفل التسليم ليُعيد الطالب المحاولة.</li>
+          <li><strong>Delete:</strong> يحذف تسليم الأسبوع للطالب.</li>
+        </ul>
+      </section>
+
+      <!-- ========================================
+           SECTION 13: كشف التشابه
+           ======================================== -->
+      <section id="similarity" aria-labelledby="similarity-title">
+        <h2 id="similarity-title">13. كشف التشابه (Similarity)</h2>
+        <p class="lead">مقارنة النصوص الحرّة بين تقارير الطلاب، بالعربية وبمقياس Bigram-Jaccard.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s13_similarity.png" alt="لوحة كشف التشابه"></div>
+          <figcaption class="figure-caption"><strong>الشكل 12:</strong> «Similarity»: فحص كامل يعمل في الخلفية، وجدول الأزواج المتشابهة مع النسب وحالة القرار.</figcaption>
+        </figure>
+
+        <p>تُقارَن النصوص الحرّة (بين الجدول والمصفوفة) عبر تشابه النصّ الحرّ في كل قسم، ثم يُدمج مع تشابه الأقسام. الفحص يعمل في عامل ويب (Web Worker) بالعربية، فتبقى الواجهة متجاوبة.</p>
+
+        <h3>العتبات</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>المقياس</th><th class="num">القيمة</th></tr></thead>
+            <tbody>
+              <tr><td>تشابه النص الحرّ (تحذير)</td><td class="num">70%</td></tr>
+              <tr><td>تشابه الأقسام (تحذير)</td><td class="num">60%</td></tr>
+              <tr><td>المؤشّر المركّب (تحذير)</td><td class="num">55%</td></tr>
+              <tr><td>النص الحرّ (متوسط)</td><td class="num">45%</td></tr>
+              <tr><td>حد الفحص للنص الحرّ</td><td class="num">35%</td></tr>
+              <tr><td>حد الفحص للمؤشّر المركّب</td><td class="num">45%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>يظهر الزوج في اللوحة إذا بلغ النص الحرّ <code>scanFree = 35%</code> أو المؤشّر المركّب <code>scanCombo = 45%</code>. ويُحسب المؤشّر المركّب: <code>free × 0.6 + sections × 0.4</code>.</p>
+
+        <h3>قرار التشابه</h3>
+        <ol class="steps">
+          <li>يفحص النظام كل الأزواج (عبر الأسابيع، بين الطلاب وداخلهم).</li>
+          <li>يُدرج الأزواج التي تجاوزت حدّ الفحص، مرتّبةً بالأعلى تشابهًا.</li>
+          <li>لكل زوج حالة: «Duplicate check pending — the grade is held» أي أن الدرجة موقوفة ريثما تقرّر.</li>
+          <li>تفتح «Compare / decide» لترى التقريرين جنبًا إلى جنب.</li>
+          <li>قرارك: «Confirm duplication → 0» يصفّر الدرجة، أو «Not a match → restore» يعيدها.</li>
+        </ol>
+        <div class="notice notice-warning">
+          <div class="notice-content"><strong>تنبيه تشغيلي:</strong> كشف التشابه يعتمد على النص الحرّ الذي يكتبه الطالب. تقارير بلا نص حرّ (إجابات مغلقة فقط) قد لا تُبرز تشابهًا حتى لو تشابهت بنيتها، لذا اقرأ الزوج قبل القرار دائمًا.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 14: مسائل معروفة
+           ======================================== -->
+      <section id="issues" aria-labelledby="issues-title">
+        <h2 id="issues-title">14. مسائل معروفة</h2>
+        <p class="lead">مسألتان حقيقيتان في البناء الحالي، موثّقتان كما هما دون تغيير في المنصة.</p>
+
+        <div class="accordion" data-multi>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="true" aria-controls="issue1">
+              1) نافذة الضعف — تضخّم النسب في الوضع العام
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="issue1" style="max-height: 400px;">
+              <div class="inner">
+                <p><strong>العَرَض:</strong> عند اختيار «Supervisor — all in scope» تعرض لوحة الضعف نسبًا مضخَّمة للأقسام (تتجاوز 100%).</p>
+                <p><strong>السبب:</strong> دالة التجميع تجمع النقاط المحصَّلة عبر كل تقارير الطالب، بينما تُضيف وزن القسم مرة واحدة فقط لكل طالب، فيخرج الناتج أكبر من الحقيقة.</p>
+                <p><strong>ما نوصي به:</strong> اعتمد على عرض <strong>الطالب الواحد</strong> في نافذة الضعف (القسم 8)، وعلى نافذة <strong>التحليل</strong> (القسم 7) التي تحسب المتوسطات بشكل صحيح. الوضع العام للوحة الضعف غير موثوق حتى يُصلح.</p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="issue2">
+              2) استقبال الملفات — تعارض بين القائمة والصلاحية
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="issue2">
+              <div class="inner">
+                <p><strong>العَرَض:</strong> يظهر «Receive files» في قائمة المشرف، لكن الضغط عليه يعرض «You are not allowed to open this section».</p>
+                <p><strong>السبب:</strong> خريطة الصلاحيات لا تتضمّن الصلاحية المطلوبة، مع أن قائمة التنقّل تُدرجه للمشرف.</p>
+                <p><strong>ما نوصي به:</strong> نفّذ استقبال الملفات من حساب مسؤول المنصة (المدير) الذي يملك صلاحية الوصول، أو أصلح الخريطة في نسخة المنصة إن أردت أن يستقبله المشرف مباشرة.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 15: أسئلة شائعة
+           ======================================== -->
+      <section id="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">15. أسئلة شائعة</h2>
+        <div class="accordion" data-multi>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="supfaq1">
+              كيف يُسند التقرير إليّ؟
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="supfaq1">
+              <div class="inner"><p>تلقائيًّا وفق نطاقك (المجموعة/المستشفى/الوردية). لا حاجة لأي إجراء يدوي.</p></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="supfaq2">
+              لماذا لا يرى الطالب درجته داخل القسم؟
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="supfaq2">
+              <div class="inner"><p>التصميم متعمد: لا تُعرض النقاط داخل القسم؛ تُجمع كلها في التقرير النهائي. غاية القفل التثبيت والتعلّم من التغذية الراجعة.</p></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="supfaq3">
+              ما الفرق بين «التحليل» و«نافذة الضعف»؟
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="supfaq3">
+              <div class="inner"><p>«التحليل» تحسب المتوسطات بشكل صحيح على مستوى الطالب. «نافذة الضعف» في وضع «كل الطلاب» تعطي أرقامًا مضخَّمة (غير موثوقة). استخدم التحليل للمقارنة، ونافذة الضعف لطالب واحد فقط.</p></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="supfaq4">
+              ماذا يعني «Duplicate check pending — the grade is held»؟
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="supfaq4">
+              <div class="inner"><p>النظام رصد تشابهًا مشبوهًا. الدرجة مجمّدة (تظهر 0) إلى أن تفتح «Compare / decide» وتقرّر: تأكيد (صفر) أو نفي (إعادة الدرجة).</p></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="supfaq5">
+              هل يمكنني إعادة درجة أو تعديلها؟
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="supfaq5">
+              <div class="inner"><p>نعم، من نافذة المراجعة زر «Reassign final score» يتيح تعديل الدرجة (0–100) مع تدوين السبب في سجل التدقيق.</p></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="supfaq6">
+              لماذا يظهر «Central sync: not configured»؟
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="supfaq6">
+              <div class="inner"><p>المزامنة السحابية غير مفعّلة. البيانات محليّة على الجهاز. هذا لا يمنع العمل؛ المزامنة اختيارية للنسخ الاحتياطي عبر الأجهزة.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 16: اختبر نفسك
+           ======================================== -->
+      <section id="quiz" aria-labelledby="quiz-title">
+        <h2 id="quiz-title">16. اختبر نفسك</h2>
+        <p class="lead">خمسة أسئلة فحص سريع لمهام المشرف. اختر إجابة لتعرف صحّتها فورًا.</p>
+
+        <div class="quiz" id="supquiz1">
+          <div class="quiz-question" data-correct="a">
+            <p class="quiz-q">1) كيف يصل تقرير الطالب إلى المشرف؟</p>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="sq1" value="a" data-correct><span>يُسند تلقائيًّا إلى مشرف نطاق الطالب — Auto-assigned by scope</span></label>
+              <label class="quiz-option"><input type="radio" name="sq1" value="b"><span>يرسله الطالب يدويًّا بالبريد لكل مشرف</span></label>
+              <label class="quiz-option"><input type="radio" name="sq1" value="c"><span>يُسند إلى مسؤول المنصة فقط</span></label>
+              <label class="quiz-option"><input type="radio" name="sq1" value="d"><span>لا يُسند إلى أحد حتى يطلبه المشرف</span></label>
+            </div>
+            <div class="quiz-feedback" data-explanation="الإسناد تلقائي وفق نطاق المشرف."></div>
+          </div>
+          <div class="quiz-question" data-correct="b">
+            <p class="quiz-q">2) أي نافذة تعطي متوسطات الأقسام الصحيحة للمقارنة؟</p>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="sq2" value="a"><span>نافذة الضعف بوضع «كل الطلاب»</span></label>
+              <label class="quiz-option"><input type="radio" name="sq2" value="b" data-correct><span>نافذة التحليل (Analysis)</span></label>
+              <label class="quiz-option"><input type="radio" name="sq2" value="c"><span>جدول التقارير</span></label>
+              <label class="quiz-option"><input type="radio" name="sq2" value="d"><span>لوحة كشف التشابه</span></label>
+            </div>
+            <div class="quiz-feedback" data-explanation="التحليل يحسب المتوسطات بشكل صحيح؛ وضع «كل الطلاب» في نافذة الضعف غير موثوق."></div>
+          </div>
+          <div class="quiz-question" data-correct="c">
+            <p class="quiz-q">3) عند أي عدد غيابات يُعطى «Final warning»؟</p>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="sq3" value="a"><span>غياب واحد</span></label>
+              <label class="quiz-option"><input type="radio" name="sq3" value="b"><span>غيابان</span></label>
+              <label class="quiz-option"><input type="radio" name="sq3" value="c" data-correct><span>ثلاثة فأكثر</span></label>
+              <label class="quiz-option"><input type="radio" name="sq3" value="d"><span>خمسة فأكثر</span></label>
+            </div>
+            <div class="quiz-feedback" data-explanation="3 فأكثر = Final warning، و2 = First warning، و1 = Monitoring."></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <p class="quiz-q">4) على ماذا تُحتسب إحصاءات نافذة تحليل الأسئلة؟</p>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="sq4" value="a" data-correct><span>بنود الأسئلة في الأقسام المقفلة ذات الدرجة الرقمية، وبحد أدنى 5 استجابات للبند</span></label>
+              <label class="quiz-option"><input type="radio" name="sq4" value="b"><span>على عدد مرات فتح الطالب للنافذة</span></label>
+              <label class="quiz-option"><input type="radio" name="sq4" value="c"><span>على كل بند حتى بلا استجابات</span></label>
+              <label class="quiz-option"><input type="radio" name="sq4" value="d"><span>على الدرجات النهائية فقط</span></label>
+            </div>
+            <div class="quiz-feedback" data-explanation="تُحتسب البنود فوق الأقسام المقفلة وذات الدرجة الرقمية، والحد الأدنى 5 استجابات."></div>
+          </div>
+          <div class="quiz-question" data-correct="d">
+            <p class="quiz-q">5) ماذا تعرض لوحة كشف التشابه عند رصد زوج متشابه؟</p>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="sq5" value="a"><span>تحذف الدرجة فورًا بلا مراجعة</span></label>
+              <label class="quiz-option"><input type="radio" name="sq5" value="b"><span>ترسل تنبيهًا للطالب فقط</span></label>
+              <label class="quiz-option"><input type="radio" name="sq5" value="c"><span>لا تعرض شيئًا حتى تكتب أنت التقرير</span></label>
+              <label class="quiz-option"><input type="radio" name="sq5" value="d" data-correct><span>الطالبان والأسبوع والنسب وحالة «قيد الفحص — الدرجة موقوفة» مع زر المقارنة والقرار</span></label>
+            </div>
+            <div class="quiz-feedback" data-explanation="تعرض الزوج والنسب والحالة، وتنتظر قرارك: تأكيد تكرار أو نفي."></div>
+          </div>
+          <div class="quiz-actions">
+            <button class="btn btn-primary quiz-submit">تحقق من الإجابات</button>
+            <button class="btn btn-secondary quiz-retry" style="display:none">إعادة المحاولة</button>
+            <div class="quiz-score"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer" role="contentinfo">
+        <hr class="section-divider">
+        <p>ورشة تدريب المشرفين — منصة التدريب السريري. كل الشروح مستخرجة من البناء العامل للمنصة، وكل الصور لقطات حقيقية من نسخة تجريبية ببيانات وصفية.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tocList = document.getElementById('tocList');
+      const sections = document.querySelectorAll('main section[id]');
+      const tocHtml = Array.from(sections).map((sec) => {
+        const title = sec.querySelector('h2')?.textContent || sec.id;
+        const id = sec.id;
+        return `<li><a href="#${id}">${title}</a></li>`;
+      }).join('');
+      tocList.innerHTML = tocHtml;
+
+      const tocLinks = tocList.querySelectorAll('a');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+          }
+        });
+      }, { rootMargin: '-100px 0px -66% 0px', threshold: 0 });
+      sections.forEach(s => observer.observe(s));
+    });
+  </script>
+</body>
+</html>

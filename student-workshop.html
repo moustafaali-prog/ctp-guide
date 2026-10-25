@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ورشة تدريب لطلبة التمريض — منصة التدريب السريري للأطفال</title>
+  <meta name="description" content="ورشة عملية تأخذك من لحظة تسجيل الدخول حتى تسليم تقرير الحالة الأسبوعي">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <aside class="sidebar" role="navigation" aria-label="جدول محتويات الورشة">
+      <div class="sidebar-title">محتويات الورشة</div>
+      <nav class="toc-nav">
+        <ul class="toc-list" id="tocList"></ul>
+      </nav>
+    </aside>
+
+    <main class="main-content" role="main">
+      <button class="mobile-menu-btn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="tocList">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <div class="sidebar-overlay" aria-hidden="true"></div>
+
+      <header class="site-header" role="banner">
+        <div class="logo">
+          <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28 4C37.3 4 48 7.8 48 12.5C48 33.5 28 49.1 28 50.6C28 49.1 8 33.5 8 12.5C8 7.8 18.6 4 28 4Z" fill="#0891B2"/>
+            <rect x="25" y="16" width="6" height="18" rx="2" fill="white"/>
+            <rect x="19" y="22" width="18" height="6" rx="2" fill="white"/>
+            <path d="M6 31H16L20 23L24 39L28 13L33 35L36 29L39 31H50" stroke="#67E8F9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span>CTP Student Workshop</span>
+        </div>
+        <nav aria-label="التنقل الرئيسي">
+          <a href="index.html">الدليل الكامل</a>
+          <a href="student-workshop.html" class="active">ورشة الطلبة</a>
+          <a href="supervisor-workshop.html">ورشة المشرفين</a>
+        </nav>
+        <div class="header-actions">
+          <a href="index.html" class="btn btn-secondary">الدليل الكامل</a>
+          <a href="supervisor-workshop.html" class="btn btn-secondary">ورشة المشرفين</a>
+          <button class="btn btn-print btn-ghost" aria-label="طباعة أو حفظ ك PDF">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            طباعة
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <span class="hero-kicker">ورشة تدريب عملي — طلبة التمريض</span>
+          <h1 id="hero-title">منصة التدريب السريري للأطفال<br>دليل الطالب خطوة بخطوة</h1>
+          <p class="hero-lead">ورشة عملية تأخذك من لحظة تسجيل الدخول حتى تسليم تقرير الحالة الأسبوعي: كيف تقرأ الحالة، وكيف تملأ الأقسام الأحد عشر، وكيف يقيّم النظام إجاباتك، وكيف تُدار المذاكرة الأسبوعية والتسليم.</p>
+          <div class="kpi-grid" style="margin-top: 32px;">
+            <div class="kpi-card"><div class="kpi-value" data-target="11">0</div><div class="kpi-label">قسمًا موجَّهًا</div></div>
+            <div class="kpi-card"><div class="kpi-value" data-target="100">0</div><div class="kpi-label">درجة موزّعة</div></div>
+            <div class="kpi-card"><div class="kpi-value" data-target="19">0</div><div class="kpi-label">حالة سريرية</div></div>
+            <div class="kpi-card"><div class="kpi-value" data-target="2">0</div><div class="kpi-label">خطتا رعاية</div></div>
+          </div>
+          <div class="hero-actions">
+            <button class="btn btn-gold btn-lg btn-print"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg> طباعة الورشة / حفظ PDF</button>
+            <a href="#intro" class="btn btn-secondary btn-lg">ابدأ من المقدمة</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 1: المقدمة
+           ======================================== -->
+      <section id="intro" aria-labelledby="intro-title">
+        <h2 id="intro-title">1. المقدمة: ما هذه المنصة وما المطلوب منك</h2>
+        <p class="lead">قبل أي نقرة على الشاشة، افهم الفكرة العامة للنظام حتى تعرف أين تضع جهدك العلمي.</p>
+        <p>هذه منصة تدريب سريري في تمريض الأطفال تعمل داخل المتصفح. جوهرها بسيط: <strong>كل أسبوع عملي يُنجز فيه تقرير حالة واحد</strong> بصيغة «التقرير السريري اليومي للأطفال» (Pediatric Daily Clinical Report). لا يطلب منك النظام مقالًا حرًّا، بل يمرّ بك عبر مسار موجَّه: تعرّف على الحالة، ثم وثّق الشكوى والتاريخ والفحص والعلامات الحيوية والقياسات والتحاليل، ثم ابنِ خطة رعاية تمريضية كاملة، ثم راجع نفسك.</p>
+
+        <div class="notice notice-warning">
+          <div class="notice-content">
+            <strong>قاعدة ذهبية:</strong> هذه الورشة تصف ما تفعله المنصة فعليًّا. كل صورة هنا مأخوذة من النظام الحقيقي، وكل رقم مأخوذ من إعداداته ومكتبة حالاته. لا توجد خطوات مُتخيَّلة.
+          </div>
+        </div>
+
+        <h3>الأهداف التدريبية للورشة</h3>
+        <ul>
+          <li>أن تُنظّم عملك الأسبوعي وتُداريه عبر واجهة الأسابيع والتذاكر.</li>
+          <li>أن تقرأ سيناريو الحالة علميًّا وتستخرج منه الأعراض والعلامات والبيانات.</li>
+          <li>أن تُدخل بياناتك في أنواع الأسئلة المختلفة إدخالًا صحيحًا.</li>
+          <li>أن تفهم قواعد التقييم: ما الذي يُحتسب، وما الذي يُسجَّل دون احتساب.</li>
+          <li>أن تُسلّم التقرير بطريقة مضمونة عبر ملف «التسليم دون اتصال».</li>
+          <li>أن تتجنّب الأخطاء الشائعة التي تُهدر درجاتك.</li>
+        </ul>
+      </section>
+
+      <!-- ========================================
+           SECTION 2: كيف يعمل النظام
+           ======================================== -->
+      <section id="how" aria-labelledby="how-title">
+        <h2 id="how-title">2. كيف يعمل النظام: نظرة سريعة</h2>
+        <p class="lead">افهم الخريطة الكاملة قبل التفاصيل.</p>
+        <ol class="steps">
+          <li><strong>تسجيل الدخول:</strong> شاشة واحدة. تختار اسمك من قائمة الطلبة ثم تُدخل رمزك السري المكوّن من ستة أرقام. النظام يعرف دورك تلقائيًّا.</li>
+          <li><strong>لوحة الطالب:</strong> ترى فيها اسمك ومستشفاك ودوريتك ومشرفك ومعدّلك التراكمي، وقائمة الأسابيع وحالة كل أسبوع.</li>
+          <li><strong>فتح أسبوع:</strong> بالضغط على بطاقة الأسبوع المتاح تبدأ المسار الموجَّه للحالة.</li>
+          <li><strong>الأقسام الأحد عشر:</strong> تنتقل بينها من الشريط الجانبي. في كل قسم أسئلة تُجيب عنها ثم تضغط «Check section & score» لقفله وتثبيت إجاباتك.</li>
+          <li><strong>التقرير النهائي:</strong> بعد اكتمال الأقسام يُبنى التقرير الرسمي وتظهر الدرجة والدرجة اللفظية.</li>
+          <li><strong>التسليم:</strong> تُصدّر ملف التسليم دون اتصال وتُسلّمه لمشرفك.</li>
+        </ol>
+
+        <h3>ما الذي يقيّمه النظام فعليًّا</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>المحور</th><th>ما يُقاس</th><th>الأثر على الدرجة</th></tr></thead>
+            <tbody>
+              <tr><td>الأقسام الأحد عشر</td><td>دقة التوثيق السريري في كل قسم</td><td>مجموع أوزانها 100 درجة</td></tr>
+              <tr><td>القياسات المُقاسة</td><td>دقة القيمة + صحة تفسيرها مقابل المرجع</td><td>تفسير خاطئ يُضيّع درجة البند</td></tr>
+              <tr><td>الفحص الذاتي (Self-Check)</td><td>أسئلة تقييم الفهم</td><td><strong>لا يُحتسب</b> — يُسجَّل للتحليل فقط</td></tr>
+              <tr><td>تشابه التقارير</td><td>نسبة التطابق مع تقارير أخرى</td><td>قد يُجمّد الدرجة ثم يجعلها صفرًا</td></tr>
+              <tr><td>الحضور</td><td>Present / Absent / Excused</td><td>تقييم حضور مستقل من 5 درجات</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 3: تنظيم العمل الأسبوعي
+           ======================================== -->
+      <section id="weekly" aria-labelledby="weekly-title">
+        <h2 id="weekly-title">3. تنظيم العمل الأسبوعي (Weekly Work Management)</h2>
+        <p class="lead">النظام لا يعطيك كل الأسابيع دفعة واحدة؛ بل يُدار إيقاع العمل بالزمن وبالتذاكر.</p>
+
+        <h3>حالة كل أسبوع في لوحتك</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>الشارة (Badge)</th><th>المعنى</th><th>ما تفعله</th></tr></thead>
+            <tbody>
+              <tr><td><span class="badge badge-muted">Available</span></td><td>الأسبوع مفتوح ويمكنك البدء</td><td>اضغط البطاقة ثم «Enter» لبدء التقرير</td></tr>
+              <tr><td><span class="badge badge-warning">Open now</span></td><td>أسبوعك الحالي المُخصّص (تذكرة)</td><td>هو أسبوعك المعتمد لهذا الأسبوع</td></tr>
+              <tr><td><span class="badge badge-muted">Scheduled</span></td><td>لم يُفتح بعد حسب الجدول</td><td>ينتظر؛ سيظهر «Opens» بتاريخ الفتح</td></tr>
+              <tr><td><span class="badge badge-error">Closed</span></td><td>انتهى وقت الفتح</td><td>راجع مشرفك</td></tr>
+              <tr><td><span class="badge badge-success">Submitted</span></td><td>أُنجز التقرير وسُلّم</td><td>«View report» لمعاينة تقريرك المسلَّم</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>نظام التذاكر (Ticket-based rotation)</h3>
+        <p>عند تفعيله من قِبل الإدارة، تحصل على <strong>تذكرة أسبوعية</strong> تُحدّد عملك وموقعك لهذا الأسبوع، وتبقى الأسابيع الأخرى مُقنّتة (dimmed) ما لم تُنجز، حتى لا يتشتّت الطالب بين أكثر من حالة في آنٍ واحد. تنتقل التذكرة تلقائيًّا إلى الأسبوع التالي بمجرّد إنجاز الحالي.</p>
+        <div class="notice notice-info">
+          <div class="notice-content">إن كان نظام التذاكر مُعطَّلًا، تظهر جميع الأسابيع متاحة ويمكنك التقدّم حسب ترتيبك وجاهزيتك.</div>
+        </div>
+
+        <h3>البوابة الزمنية (Gate)</h3>
+        <p>يضبط المشرف جدول فتح الأسابيع. إن كانت البوابة مُفعّلة فلن يُفتح أسبوع قبل موعده، وتظهر حالة «Opens:» بتاريخ ووقت الفتح. هذا يمنع تقديم تقارير خارج تسلسل التدريب.</p>
+      </section>
+
+      <!-- ========================================
+           SECTION 4: الدخول إلى النظام
+           ======================================== -->
+      <section id="login" aria-labelledby="login-title">
+        <h2 id="login-title">4. الدخول إلى النظام</h2>
+        <p class="lead">شاشة واحدة موحّدة لكل الأدوار؛ النظام يتعرّف على دورك من سجلك.</p>
+        <ol class="steps">
+          <li>افتح الرابط الذي يزوّدك به مشرفك على المتصفح.</li>
+          <li>اكتب أول حروف اسمك في حقل الاسم لتظهر قائمة الطلبة، ثم اختر اسمك بالكامل.</li>
+          <li>أدخل رمزك السري المكوّن من ستة أرقام في حقل <code>PIN</code>.</li>
+          <li>اضغط زر الدخول. ستُنقل مباشرة إلى لوحة الطالب.</li>
+        </ol>
+        <figure class="figure">
+          <div class="screenshot-frame">
+            <img src="assets/s01_login.png" alt="شاشة الدخول الموحّدة">
+          </div>
+          <figcaption class="figure-caption"><strong>الشكل 1:</strong> شاشة الدخول الموحّدة. حقل واحد للاسم (مع قائمة اقتراحات) وحقل واحد للرمز السري.</figcaption>
+        </figure>
+        <div class="two-col">
+          <div class="notice notice-success"><strong>أمان الرمز السري:</strong> الرموز التي يسهل تخمينها مرفوضة، ويجب أن يكون الرمز من ستة أرقام. المشرف يضبط رمزك أول مرة، ويمكنك تغييره. لا تُشارك رمزك مع أحد؛ سيطلب منك النظام رمزك مرة أخرى عند لحظة التسليم كتأكيد.</div>
+          <div class="notice"><strong>حسابك غير مرتبط بجهاز:</strong> يمكنك تسجيل الدخول من أي جهاز يُتيحه لك المشرف باسمك ورمزك، لا من جهاز واحد فقط.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 5: لوحة الطالب الرئيسية
+           ======================================== -->
+      <section id="home" aria-labelledby="home-title">
+        <h2 id="home-title">5. لوحة الطالب الرئيسية</h2>
+        <p class="lead">هذه نقطة انطلاقك كل أسبوع؛ افهم مكوّناتها الأربعة.</p>
+        <figure class="figure">
+          <div class="screenshot-frame">
+            <img src="assets/s02_home.png" alt="لوحة الطالب الرئيسية">
+          </div>
+          <figcaption class="figure-caption"><strong>الشكل 2:</strong> لوحة الطالب: الترحيب والبيانات، ثم حلقة المعدّل التراكمي، ثم صندوق «How It Works»، ثم شبكة الأسابيع والتذاكر.</figcaption>
+        </figure>
+        <div class="kpi-grid">
+          <div class="kpi-card"><h4>1) شريط الترحيب</h4><p>يعرض اسمك، ومستشفاك، ودوريتك (Morning/Evening)، والمؤسسة، واسم مشرفك. راجع أن هذه البيانات صحيحة.</p></div>
+          <div class="kpi-card"><h4>2) حلقة المعدّل (/100 avg)</h4><p>معدّلك التراكمي عبر الأسابيع المنجزة. تُحسب من درجات تقاريرك المُراجَعة.</p></div>
+          <div class="kpi-card"><h4>3) صندوق «How It Works»</h4><p>تذكير مختصر بتسلسل العمل: فتح الأسبوع، أقسام التقرير، ثم التسليم.</p></div>
+          <div class="kpi-card"><h4>4) شبكة الأسابيع والتذاكر</h4><p>قلب إدارة العمل: كل بطاقة أسبوع تحمل حالته وشارته، ومنها تبدأ أو تعاين تقاريرك.</p></div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 6: فهم الحالة: كيف تقرأ السيناريو
+           ======================================== -->
+      <section id="case" aria-labelledby="case-title">
+        <h2 id="case-title">6. فهم الحالة: كيف تقرأ السيناريو علميًّا</h2>
+        <p class="lead">قبل الإجابة، تعلّم كيف تستخرج البيانات من بطاقة الحالة.</p>
+        <p>بمجرّد اختيارك للتشخيص في القسم الأول، يفتح النظام <strong>بطاقة الحالة (case card)</strong> في أعلى كل قسم، وتضمّ:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>العنصر</th><th>ماذا يمنحك</th></tr></thead>
+            <tbody>
+              <tr><td>القسم المُدخَل إليه (Ward)</td><td>سياق الحالة: NICU، Blood، Medical، Surgical</td></tr>
+              <tr><td>عنوان الحالة (Title)</td><td>اسم التشخيص السريري</td></tr>
+              <tr><td>الملخّص (Abstract)</td><td>وصف مختصر للمشكلة</td></tr>
+              <tr><td>السيناريو (Scenario)</td><td>القصة السريرية الكاملة التي تبني عليها إجاباتك</td></tr>
+              <tr><td>المصدر (Source)</td><td>المرجع العلمي للحالة</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card" style="background: var(--info-bg); border-color: var(--info);">
+          <h4>مثال علمي مُشتقّ من مكتبة النظام: «اليرقان الوليدي» (Neonatal Jaundice)</h4>
+          <p><strong>السيناريو:</strong> «نورا، مولودة في تمام الحمل (39 أسبوعًا) بولادة طبيعية، وزن الولادة 3200 غ. لاحظت الأم خلال اليومين الأخيرين اصفرارًا متزايدًا في الوجه ثم الصدر، مع ضعف في الرضاعة ونوم زائد.»</p>
+          <p><strong>كيف تقرأها؟</strong></p>
+          <ul>
+            <li>العمر (3 أيام) + بدء الاصفرار بعد 24 ساعة + عدم وجود فقر دم واضح ⇒ نمط يرقيان فسيولوجي غير مقترن.</li>
+            <li>التحاليل المرجعية: البيليروبين الكلي 13.6 ملغم/دل، المباشر 0.6 ملغم/دل ⇒ الجزء غير المباشر هو السائد.</li>
+            <li>الخطر الأساسي: التسمّم العصبي (Kernicterus) ⇒ الأولوية العلاجية هي العلاج الضوئي (Phototherapy).</li>
+          </ul>
+        </div>
+        <div class="notice notice-tip">
+          <div class="notice-content"><strong>إرشاد تدريبي:</strong> اقرأ السيناريو جملة جملة، وحوّل كل جملة إلى بند: عمر، جنس، وزن، زمن البداية، العرض، العلامة. هذه البنود هي نفسها التي ستُسأل عنها في الأقسام.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 7: الأقسام الأحد عشر
+           ======================================== -->
+      <section id="sections" aria-labelledby="sections-title">
+        <h2 id="sections-title">7. الأقسام الأحد عشر: الشرح والغرض العلمي</h2>
+        <p class="lead">لكل قسم غرض علمي ووزن محدد. الشريط الجانبي يعرض الأقسام ويتتبّع المكتمل منها.</p>
+
+        <h3>أوزان الأقسام</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th class="num">#</th><th>القسم</th><th>English</th><th class="num">الوزن</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td>المعلومات التعريفية</td><td>Identifying Information</td><td class="num">8</td></tr>
+              <tr><td class="num">2</td><td>الشكوى الرئيسية</td><td>Chief Complaint</td><td class="num">5</td></tr>
+              <tr><td class="num">3</td><td>العلامات الحيوية</td><td>Vital Signs</td><td class="num">12</td></tr>
+              <tr><td class="num">4</td><td>القياسات الجسمية</td><td>Anthropometrics</td><td class="num">8</td></tr>
+              <tr><td class="num">5</td><td>تاريخ المرض الحالي</td><td>History of Present Illness</td><td class="num">10</td></tr>
+              <tr><td class="num">6</td><td>التاريخ المرضي السابق</td><td>Past History</td><td class="num">5</td></tr>
+              <tr><td class="num">7</td><td>تعزيز الصحة (أ إلى هـ)</td><td>Health Promotion (A–E)</td><td class="num">8</td></tr>
+              <tr><td class="num">8</td><td>الأدوية الحالية</td><td>Current Medication</td><td class="num">8</td></tr>
+              <tr><td class="num">9</td><td>الفحص السريري</td><td>Physical Examination</td><td class="num">14</td></tr>
+              <tr><td class="num">10</td><td>التحاليل والنتائج التشخيصية</td><td>Laboratory & Diagnostic</td><td class="num">10</td></tr>
+              <tr><td class="num">11</td><td>خطة الرعاية التمريضية (تشخيصان)</td><td>Nursing Care Plan</td><td class="num">12</td></tr>
+              <tr style="font-weight:700; background:#EDF3F8;"><td colspan="3"><b>المجموع</b></td><td class="num"><b>100</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice notice-warning">
+          <div class="notice-content"><strong>لماذا الوزن مهم؟</strong> قسم «الفحص السريري» (14) و«العلامات الحيوية» (12) و«خطة الرعاية» (12) تحمل أوزانًا ثقيلة. إهمال قسم واحد ثقيل يُنزل درجتك الكلية أكثر بكثير من إهمال قسم خفيف. وزّع جهدك بحسب الوزن.</div>
+        </div>
+
+        <!-- Section details with interactive accordions -->
+        <div class="accordion" data-multi>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="true" aria-controls="sec1">
+              القسم 1 — المعلومات التعريفية (Identifying Information) — الوزن: 8
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec1" style="max-height: 500px;">
+              <div class="inner">
+                <p>تختار الجنس، والفئة العمرية، والقسم المُدخَل إليه، وزمن الإدخال بالنسبة للبداية، وأهم عنصر: <strong>التشخيص الطبي الذي تعرّفت عليه</strong>. اختيار «Other…» يفتح حقل نص حر للوضع الموجَّه الحُر. لا يُكشف التشخيص الصحيح قبل تأكيدك، ثم يظهر السجل المعتمد.</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s03_wiz_ident.png" alt="القسم الأول: المعلومات التعريفية"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 3:</strong> القسم الأول عند فتحه أول مرة، مع قائمة التشخيص والفئة العمرية والقسم.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="sec2">
+              القسم 2 — الشكوى الرئيسية (Chief Complaint) — الوزن: 5
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec2">
+              <div class="inner">
+                <p>تُصاغ الشكوى كما ذكرها المُبلِّغ (عادة الأم) بلغتها، لا بتشخيصك الطبي. مثال الحالة: «اصفرار لون الوجه والجسم ازداد خلال يومين».</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s04_wiz_cc.png" alt="القسم الثاني: الشكوى الرئيسية"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 4:</strong> بطاقة الحالة ظاهرة في الأعلى، وتحتها خيارات الشكوى الرئيسية.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="sec3">
+              القسم 3 — العلامات الحيوية (Vital Signs) — الوزن: 12
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec3">
+              <div class="inner">
+                <p>تُدخل القيمة الرقمية (حرارة، نبض، تنفّس، إشباع الأكسجين) <strong>ثم تُصنّفها</strong> مقابل النطاق المرجعي: أقل من النطاق، ضمن النطاق، أو أعلى من النطاق. القيمة غير الطبيعية ليست خطأً في ذاتها؛ الخطأ هو قراءتها قراءة خاطئة.</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s05_wiz_vit.png" alt="القسم الثالث: العلامات الحيوية"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 5:</strong> قسم العلامات الحيوية: لكل قيمة حقل رقمي وقائمة تفسير.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="sec4">
+              القسم 4 — القياسات الجسمية (Anthropometrics) — الوزن: 8
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec4">
+              <div class="inner">
+                <p>وزن الولادة، والوزن الحالي، ومسجّل النمو. انتبه لوحدات القياس (غرام/كغم).</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s06_wiz_anth.png" alt="القسم الرابع: القياسات الجسمية"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 6:</strong> قسم القياسات الجسمية.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="sec5">
+              القسم 5 — تاريخ المرض الحالي (History of Present Illness) — الوزن: 10
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec5">
+              <div class="inner">
+                <p>يُطلب منك <strong>ترتيب</strong> تسلسل الأحداث سريريًّا (order)، مع تصفية العناصر ذات الصلة. رتّبها زمنيًّا ومنطقي: من أول عرض إلى اللحظة الحالية.</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s07_wiz_hpi.png" alt="القسم الخامس: تاريخ المرض الحالي"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 7:</strong> قسم تاريخ المرض الحالي (سؤال ترتيب التسلسل).</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="sec6">
+              القسم 6 — التاريخ المرضي السابق (Past History) — الوزن: 5
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec6">
+              <div class="inner">
+                <p>تاريخ الولادة، والأمراض/العمليات السابقة، والحساسية، والتطعيمات.</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s08_wiz_hist.png" alt="القسم السادس: التاريخ المرضي السابق"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 8:</strong> قسم التاريخ المرضي السابق.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="sec7">
+              القسم 7 — تعزيز الصحة (Health Promotion A–E) — الوزن: 8
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec7">
+              <div class="inner">
+                <p>خمسة بنود: اللعب والنشاط، النوم والراحة، التغذية، الإخراج، والأسنان واللثة. لكل بند خيار مطابق للحالة.</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s09_wiz_promo.png" alt="القسم السابع: تعزيز الصحة"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 9:</strong> قسم تعزيز الصحة (البنود أ إلى هـ).</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="sec8">
+              القسم 8 — الأدوية الحالية (Current Medication) — الوزن: 8
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec8">
+              <div class="inner">
+                <p>العلاج الأساسي المُوصف ومسؤوليات التمريض المرتبطة به. مثال: «العلاج الضوئي بالأشعة الزرقاء» و«تغطية العينين ومراقبة الحرارة أثناء الجلسة».</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s10_wiz_meds.png" alt="القسم الثامن: الأدوية الحالية"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 10:</strong> قسم الأدوية الحالية مع بطاقات الحساب الدوائي أسفل الأسئلة.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="sec9">
+              القسم 9 — الفحص السريري (Physical Examination) — الوزن: 14
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec9">
+              <div class="inner">
+                <p>أربع مهارات: الفحص بالنظر (Inspection)، والجس (Palpation)، والطرق (Percussion)، والسماع (Auscultation). وثّق ما تجده فعليًّا في السيناريو.</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s11_wiz_pe.png" alt="القسم التاسع: الفحص السريري"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 11:</strong> قسم الفحص السريري بمهاراته الأربع.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="sec10">
+              القسم 10 — التحاليل والنتائج التشخيصية (Laboratory & Diagnostic) — الوزن: 10
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec10">
+              <div class="inner">
+                <p>أدخل قيم التحاليل (مثل البيليروبين الكلي والمباشر) وصنّف كل قيمة، ثم أجب عن أسئلة تفسيرية تربط القيم بالصورة السريرية (فسيولوجي مقابل مرضي).</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s12_wiz_labs.png" alt="القسم العاشر: التحاليل"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 12:</strong> قسم التحاليل: قيم رقمية بتفسير، وأسئلة تفسير سريري.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="sec11">
+              القسم 11 — خطة الرعاية التمريضية (Nursing Care Plan) — الوزن: 12
+              <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+            <div class="accordion-content" id="sec11">
+              <div class="inner">
+                <p>أثقل القسم من حيث المحتوى: تبني <strong>تشخيصين تمريضيين</strong>. لكل تشخيص: الأولوية، والأدلة الداعمة، والسبب (related to)، والأدلة كما تظهر (as evidenced by)، والهدف، والتدخلات مع المبرّر (اختيار متعدّد)، والتقييم.</p>
+                <figure class="figure">
+                  <div class="screenshot-frame"><img src="assets/s13_wiz_ncp.png" alt="القسم الحادي عشر: خطة الرعاية التمريضية"></div>
+                  <figcaption class="figure-caption"><strong>الشكل 13:</strong> قسم خطة الرعاية التمريضية الكامل (طويل؛ حرّك داخل الإطار).</figcaption>
+                </figure>
+                <div class="notice notice-success">
+                  <div class="notice-content"><strong>مثال على التشخيصين للحالة:</strong> (1) خطر إصابة عصبية بسبب مستويات بيليروبين غير مقترن سامّة (خطر اليرقان النووي)، (2) خطر اختلال حرارة الجسم بسبب فقد الحرارة أثناء العلاج الضوئي. الهدف: لا إصابة عصبية مع انخفاض البيليروبين، والحفاظ على الحرارة 36.5–37.5 مئوية.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 8: أنواع الأسئلة
+           ======================================== -->
+      <section id="qtypes" aria-labelledby="qtypes-title">
+        <h2 id="qtypes-title">8. أنواع الأسئلة: كيف تُجيب عن كل نوع</h2>
+        <p class="lead">معرفة نوع السؤال تُوجّه إجابتك وتحميك من فقدان الدرجات.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>النوع</th><th>كيف يظهر</th><th>قاعدة الإجابة</th></tr></thead>
+            <tbody>
+              <tr><td>اختيار مفرد (Single)</td><td>خيارات بجانبها دوائر اختيار</td><td>خيار واحد صحيح فقط</td></tr>
+              <tr><td>اختيار متعدّد (Multi)</td><td>خيارات بجانبها مربّعات</td><td>اختر جميع الصحيحة دون أي خيار خاطئ</td></tr>
+              <tr><td>نص حر (Text)</td><td>حقل كتابة</td><td>يُسجَّل؛ وإن لم يكن له مفتاح إجابة فلا نقاط عليه</td></tr>
+              <tr><td>ترتيب (Order)</td><td>قائمة تُرتَّب</td><td>يجب أن يطابق ترتيبك الترتيب الصحيح</td></tr>
+              <tr><td>قيمة رقمية + تفسير</td><td>حقل رقم + قائمة تفسير</td><td>قيمة دقيقة + تفسير صحيح مقابل النطاق المرجعي</td></tr>
+              <tr><td>خطة الرعاية (NCP)</td><td>سلسلة أسئلة مركّبة</td><td>تشخيصان كاملان: سبب + دليل + هدف + تدخلات + تقييم</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice notice-warning">
+          <div class="notice-content"><strong>تحذير عملي:</strong> في الأسئلة متعدّدة الاختيار، اختيار خيار صحيح إضافي غير مطلوب قد يجعل البند خاطئًا. اختر ما يطلبه السؤال بالضبط.</div>
+        </div>
+        <div class="notice">
+          <div class="notice-content"><strong>عند تعذّر الفحص (Interpretation):</strong> إذا كان البند قياسًا له نطاق مرجعي ولم تُصنّف قيمته، فلن يُقبل فحص القسم، وسيُنبّهك النظام لتحديد التصنيف أولًا.</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 9: زر الفحص والتغذية الراجعة
+           ======================================== -->
+      <section id="check" aria-labelledby="check-title">
+        <h2 id="check-title">9. زر «Check section & score»: ماذا يحدث عند الضغط</h2>
+        <p class="lead">هذا الزر هو نقطة تثبيت إجاباتك وقفل القسم.</p>
+        <p>عند الضغط عليه، يقوم النظام بما يلي:</p>
+        <ul>
+          <li>يتحقّق من أن كل بند مُقاس يحمل تفسيرًا (إن لزم).</li>
+          <li><strong>يُقفل</strong> القسم ويُثبّت إجاباتك (Locked).</li>
+          <li>يعرض «النتيجة»: سجل الإجابات المعتمدة، مع الإجابات المرجعية الصحيحة لهذا القسم.</li>
+          <li>عند أي بند خاطئ، يعرض <strong>تلميحًا معرفيًّا</strong> (Knowledge hint) و<strong>مرجعًا علميًّا</strong> (Source reference).</li>
+        </ul>
+        <div class="notice">
+          <div class="notice-content"><strong>مهم:</strong> لا تُعرض النقاط أو العلامة داخل القسم، بل تُجمع كلها عند التقرير النهائي. غاية القسم التثبيت والتعلّم، لا العرض الجزئي للدرجة.</div>
+        </div>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s14_wiz_checked.png" alt="قسم بعد الفحص والقفل"></div>
+          <figcaption class="figure-caption"><strong>الشكل 14:</strong> القسم بعد الضغط على «Check section & score»: شريط «Section recorded and locked»، والإجابات المعتمدة، وأزرار التنقّل.</figcaption>
+        </figure>
+        <h3>تنبيه التفسير الإلزامي</h3>
+        <figure class="figure">
+          <div class="screenshot-frame" style="max-height: 400px;"><img src="assets/s15_interpret_required.png" alt="تنبيه إلزامية التفسير"></div>
+          <figcaption class="figure-caption"><strong>الشكل 15:</strong> عند محاولة فحص قسم يحمل قياسًا دون تحديد موقعه من النطاق المرجعي، يظهر تنبيه «Interpret the value…» وينتقل بك إلى البند.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ========================================
+           SECTION 10: التقرير النهائي
+           ======================================== -->
+      <section id="report" aria-labelledby="report-title">
+        <h2 id="report-title">10. التقرير النهائي: العلامة والدرجة</h2>
+        <p class="lead">بعد اكتمال الأقسام وقفلها، يُبنى التقرير الرسمي ويُحسب السكور.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s16_report_top.png" alt="قمة التقرير النهائي"></div>
+          <figcaption class="figure-caption"><strong>الشكل 16:</strong> قمة التقرير: حلقة الدرجة (/100)، الدرجة اللفظية، الأزرار، وأشرطة أداء كل قسم مقابل وزنه.</figcaption>
+        </figure>
+        <div class="two-col">
+          <div class="card"><h4>عناصر التقرير</h4><ul><li>حلقة الدرجة من 100.</li><li>الدرجة اللفظية (A إلى F).</li><li>شريط لكل قسم يعرض المُحقَّق مقابل الوزن (مثال: 8 / 8).</li><li>التقرير الورقي الرسمي (Paper Report) بكل الأقسام.</li><li>الفحص الذاتي (Self-Check) في الأسفل.</li></ul></div>
+          <div class="card"><h4>الأزرار في التقرير</h4><ul><li><strong>Submit report to supervisor</b> — للإرسال المباشر (يطلب تأكيد رمزك السري).</li><li><strong>Export for offline submission (file)</b> — تصدير ملف التسليم (الطريقة المضمونة).</li><li><strong>Student PDF (No Evaluation)</b> — نسخة الطالب دون تقييم.</li><li><strong>Supervisor PDF (With Evaluation)</b> — نسخة المشرف مع التقييم.</li></ul></div>
+        </div>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s17_report_full.png" alt="التقرير النهائي كاملًا"></div>
+          <figcaption class="figure-caption"><strong>الشكل 17:</strong> التقرير النهائي كاملًا: الصيغة الورقية الرسمية ثم الفحص الذاتي (طويل؛ حرّك داخل الإطار).</figcaption>
+        </figure>
+      </section>
+
+      <!-- ========================================
+           SECTION 11: الفحص الذاتي
+           ======================================== -->
+      <section id="selfcheck" aria-labelledby="selfcheck-title">
+        <h2 id="selfcheck-title">11. الفحص الذاتي (Case Self-Check)</h2>
+        <p class="lead">أسئلة تقيس فهمك للحالة، وتظهر في أسفل التقرير النهائي.</p>
+        <p>هذه الأسئلة <strong>لا تُحتسب</strong> في درجتك، لكن إجاباتها تُسجَّل للتحليل. استخدمها للتأكد من أنك فهمت الجوهر العلمي للحالة قبل التسليم.</p>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s18_mcq_selfcheck.png" alt="الفحص الذاتي"></div>
+          <figcaption class="figure-caption"><strong>الشكل 18:</strong> قسم «Case Self-Check — not scored» أسفل التقرير.</figcaption>
+        </figure>
+
+        <!-- Interactive Quiz -->
+        <h3>اختبر نفسك: أسئلة حالة «نورا - اليرقان الوليدي»</h3>
+        <div class="quiz" id="quiz1">
+          <div class="quiz-question" data-correct="a">
+            <p class="quiz-q">1) The main purpose of phototherapy in Noura is to: — الغرض الأساسي من العلاج الضوئي:</p>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="q1" value="a" data-correct><span>Convert bilirubin to a soluble form (lumirubin) excreted in stool and urine — تحويل البيليروبين إلى صيغة قابلة للذوبان تُطرَح في البراز والبول</span></label>
+              <label class="quiz-option"><input type="radio" name="q1" value="b"><span>Increase red blood cell production — زيادة إنتاج كريات الدم الحمراء</span></label>
+              <label class="quiz-option"><input type="radio" name="q1" value="c"><span>Prevent infection — منع العدوى</span></label>
+              <label class="quiz-option"><input type="radio" name="q1" value="d"><span>Decrease fluid loss — تقليل فقد السوائل</span></label>
+            </div>
+            <div class="quiz-feedback" data-explanation="يحوّل الضوء الأزرق البيليروبين غير المقترن إلى لوميروبين قابل للذوبان يُطرَح مع البراز والبول."></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <p class="quiz-q">2) The most important precaution during phototherapy is: — أهم احتياط أثناء العلاج الضوئي:</p>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="q2" value="a" data-correct><span>Eye protection and temperature monitoring — حماية العينين ومراقبة الحرارة</span></label>
+              <label class="quiz-option"><input type="radio" name="q2" value="b"><span>Complete bed rest — راحة تامة في الفراش</span></label>
+              <label class="quiz-option"><input type="radio" name="q2" value="c"><span>Stopping breastfeeding — إيقاف الرضاعة الطبيعية</span></label>
+              <label class="quiz-option"><input type="radio" name="q2" value="d"><span>Cold compresses — كمادات باردة</span></label>
+            </div>
+            <div class="quiz-feedback" data-explanation="تغطية العينين تحمي الشبكية، ومراقبة الحرارة تمنع اختلال حرارة الجسم."></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <p class="quiz-q">3) Jaundice first becomes visible clinically when bilirubin exceeds: — يظهر اليرقان سريريًّا عند تجاوز:</p>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="q3" value="a" data-correct><span>5 mg/dL</span></label>
+              <label class="quiz-option"><input type="radio" name="q3" value="b"><span>1.4 mg/dL</span></label>
+              <label class="quiz-option"><input type="radio" name="q3" value="c"><span>13.6 mg/dL</span></label>
+              <label class="quiz-option"><input type="radio" name="q3" value="d"><span>20 mg/dL</span></label>
+            </div>
+            <div class="quiz-feedback" data-explanation="يظهر الصفار سريريًّا عند تجاوز البيليروبين الكلي 5 ملغم/دل."></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <p class="quiz-q">4) High, untreated unconjugated bilirubin may deposit in brain cells and cause: — ترسّب البيليروبين غير المعالج في خلايا الدماغ يسبب:</p>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="q4" value="a" data-correct><span>Kernicterus / bilirubin encephalopathy — اليرقان النووي / اعتلال الدماغ بالبيليروبين</span></label>
+              <label class="quiz-option"><input type="radio" name="q4" value="b"><span>Rickets — الكساح</span></label>
+              <label class="quiz-option"><input type="radio" name="q4" value="c"><span>Celiac disease — الداء البطني</span></label>
+              <label class="quiz-option"><input type="radio" name="q4" value="d"><span>Iron overload — فرط الحديد</span></label>
+            </div>
+            <div class="quiz-feedback" data-explanation="الخطر الأهم في ارتفاع البيليروبين غير المقترن هو اليرقان النووي."></div>
+          </div>
+          <div class="quiz-question" data-correct="a">
+            <p class="quiz-q">5) Physiologic jaundice in a term infant typically: — اليرقان الفسيولوجي في الوليد التام:</p>
+            <div class="quiz-options">
+              <label class="quiz-option"><input type="radio" name="q5" value="a" data-correct><span>Begins day 2–3 and peaks day 3–4 — يبدأ في اليوم 2–3 ويبلغ ذروته في 3–4</span></label>
+              <label class="quiz-option"><input type="radio" name="q5" value="b"><span>Appears in the first 24 hours — يظهر خلال أول 24 ساعة</span></label>
+              <label class="quiz-option"><input type="radio" name="q5" value="c"><span>Lasts until the third month — يستمر حتى الشهر الثالث</span></label>
+              <label class="quiz-option"><input type="radio" name="q5" value="d"><span>Requires exchange transfusion — يستلزم تبديل الدم</span></label>
+            </div>
+            <div class="quiz-feedback" data-explanation="الظهور بعد 24 ساعة يميّز الفسيولوجي عن المرضي."></div>
+          </div>
+          <div class="quiz-actions">
+            <button class="btn btn-primary quiz-submit">تحقق من الإجابات</button>
+            <button class="btn btn-secondary quiz-retry" style="display:none">إعادة المحاولة</button>
+            <div class="quiz-score"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 12: التسليم
+           ======================================== -->
+      <section id="export" aria-labelledby="export-title">
+        <h2 id="export-title">12. التسليم: كيف تُسلّم تقريرك بطريقة مضمونة</h2>
+        <p class="lead">الطريقة المعتمدة في هذه الورشة: ملف التسليم دون اتصال.</p>
+        <ol class="steps">
+          <li>أكمل الأقسام الأحد عشر وقفلها.</li>
+          <li>افتح التقرير النهائي وتأكّد من الدرجة والأشرطة.</li>
+          <li>اضغط <strong>Export for offline submission (file)</strong>.</li>
+          <li>يُحفظ ملف التقرير على جهازك (بصيغة «.json») ويظهر تأكيد البصمة الرقمية (checksum).</li>
+          <li>سلّم الملف لمشرفك عبر أي قناة (ذاكرة USB، بلوتوث، رسالة). المشرف يستورده من شاشة «Receive report files from students».</li>
+        </ol>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s19_export_offline.png" alt="تأكيد تصدير ملف التسليم"></div>
+          <figcaption class="figure-caption"><strong>الشكل 19:</strong> بعد التصدير يظهر تأكيد «Offline submission file exported (checksum …)».</figcaption>
+        </figure>
+        <div class="two-col">
+          <div class="notice notice-success"><strong>زر Submit report to supervisor:</strong> يظهر أيضًا على التقرير، وهو خيار الإرسال المباشر، ويطلب تأكيد رمزك السري. اعتمد على ملف التسليم أعلاه كطريقة التسليم الرسمية بينك وبين مشرفك.</div>
+          <div class="notice"><strong>لماذا ملف؟</strong> لأن التدريب قد يجري في بيئات بلا اتصال. الملف ينتقل يدويًّا ويُتحقَّق منه (صيغة، إصدار، بصمة، أسبوع، وجود الطالب في السجل، واكتمال الأقسام).</div>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 13: حالة التقرير بعد التسليم
+           ======================================== -->
+      <section id="status" aria-labelledby="status-title">
+        <h2 id="status-title">13. حالة التقرير بعد التسليم وملاحظات المشرف</h2>
+        <p class="lead">بعد التسليم يصبح التقرير مقفلًا، وقد يضيف المشرف ملاحظات.</p>
+        <p>من لوحة الأسابيع، افتح أسبوعًا مُسلَّمًا بزر «View report» لترى:</p>
+        <ul>
+          <li>شارة <strong>Submitted & Locked</strong> (مسلَّم ومقفل).</li>
+          <li>صندوق «Submitted Report Preview»: التقرير لم يعد قابلًا للتعديل إلا بإعادة فتح من المشرف.</li>
+          <li>صندوق <strong>«Supervisor feedback on your submission»</strong>: حالة المراجعة (Approved / Needs revision) وملاحظة المشرف.</li>
+        </ul>
+        <figure class="figure">
+          <div class="screenshot-frame"><img src="assets/s20_submitted_report.png" alt="تقرير مسلَّم مع ملاحظات المشرف"></div>
+          <figcaption class="figure-caption"><strong>الشكل 20:</strong> تقرير مسلَّم (82/100 — Very Good) مع «Submitted & Locked» وحالة المراجعة «Approved» وملاحظة المشرف.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ========================================
+           SECTION 14: معاينة خطة الرعاية
+           ======================================== -->
+      <section id="ncp" aria-labelledby="ncp-title">
+        <h2 id="ncp-title">14. معاينة خطة الرعاية (Care-Plan Preview)</h2>
+        <p class="lead">أداة مراجعة داخل قسم خطة الرعاية.</p>
+        <p>داخل قسم خطة الرعاية يوجد زر <strong>«Preview my care plan»</strong> يعرض ملخّصًا منظّمًا لخطّتي الرعاية (التشخيص، والأدلة، والهدف، والتدخلات، والتقييم). المعاينة <strong>لا تؤثر</strong> على الدرجة؛ غايتها مراجعة بنية خطتك قبل الفحص.</p>
+        <figure class="figure">
+          <div class="screenshot-frame" style="max-height: 500px;"><img src="assets/s21_ncp_preview.png" alt="معاينة خطة الرعاية"></div>
+          <figcaption class="figure-caption"><strong>الشكل 21:</strong> نافذة «Care-plan preview» تعرض خطّتي الرعاية بصيغة منظّمة.</figcaption>
+        </figure>
+      </section>
+
+      <!-- ========================================
+           SECTION 15: كيف تُحسب الدرجات
+           ======================================== -->
+      <section id="scoring" aria-labelledby="scoring-title">
+        <h2 id="scoring-title">15. كيف تُحسب الدرجات</h2>
+        <p class="lead">افهم قواعد التقييم لتوجّه جهدك بدقة.</p>
+
+        <h3>أولًا: أوزان الأقسام (مجموعها 100)</h3>
+        <p>تُوزَّع درجة كل قسم على بنوده المفتاحية (ذات الإجابة المرجعية)، ثم تُجمع الدرجات الموزونة للوصول إلى درجة التقرير من 100.</p>
+
+        <h3>ثانيًا: قواعد تقييم البنود</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>نوع البند</th><th>متى يُحتسب صحيحًا</th></tr></thead>
+            <tbody>
+              <tr><td>اختيار مفرد</td><td>عند مطابقة الخيار الصحيح</td></tr>
+              <tr><td>اختيار متعدّد</td><td>عند اختيار كل الصحيح دون أي خاطئ</td></tr>
+              <tr><td>ترتيب</td><td>عند مطابقة التسلسل الصحيح كاملًا</td></tr>
+              <tr><td>قيمة رقمية + نطاق</td><td>قياس دقيق + تفسير صحيح (أقل/ضمن/أعلى). القيمة غير الطبيعية ليست خطأً؛ الخطأ قراءتها قراءة خاطئة</td></tr>
+              <tr><td>قيمة رقمية بلا نطاق</td><td>يُقبل القياس المُسجَّل كدقيق</td></tr>
+              <tr><td>نص حر / بلا مفتاح</td><td>يُسجَّل ولا يُحتسب (لا يُمنح بلا مفتاح)</td></tr>
+              <tr><td>خطة الرعاية (NCP)</td><td>صحّة التشخيص والسبب والدليل والهدف والتدخلات والتقييم</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>ثالثًا: الدرجات اللفظية</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th class="num">الدرجة</th><th>المدى (من 100)</th><th>التقدير</th></tr></thead>
+            <tbody>
+              <tr><td class="num">A</td><td>90 وأكثر</td><td>Excellent</td></tr>
+              <tr><td class="num">B</td><td>80 – 89</td><td>Very Good</td></tr>
+              <tr><td class="num">C</td><td>70 – 79</td><td>Good</td></tr>
+              <tr><td class="num">D</td><td>60 – 69</td><td>Acceptable</td></tr>
+              <tr><td class="num">E</td><td>50 – 59</td><td>Weak</td></tr>
+              <tr><td class="num">F</td><td>أقل من 50</td><td>Fail</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="notice">
+          <div class="notice-content"><strong>المعدّل التراكمي:</strong> تُحسب حلقة «/100 avg» في لوحتك من درجاتك عبر الأسابيع المُنجزة، وتظهر أيضًا مقاييس تراكمية مثل عدد الأسابيع المُقيَّمة ومقياسين (/10 و/5) في لوحة المشرف.</div>
+        </div>
+
+        <h3>رابعًا: تشابه التقارير (Similarity)</h3>
+        <p>يتحقّق النظام قبل التسليم من تشابه تقريرك مع تقارير أخرى:</p>
+        <ul>
+          <li>يُعرض التشابه المركّب (نص حر + أقسام): عند تجاوز الحد تظهر مطابقة.</li>
+          <li>عند تشابه قوي قبل التسليم، يظهر تنبيه يُخيّرك: «أرسل على أي حال (تُجمَّد الدرجة للمراجعة)» أو «رجوع وتعديل».</li>
+          <li>التقرير المُعلَّق يظهر بدرجة مجمّدة (0) حتى يقارن المشرف التقريرين.</li>
+          <li>عند تأكيد الازدواج تصبح درجة الأسبوع <strong>صفرًا</strong>؛ وعند رفضه تُعاد الدرجة الطبيعية.</li>
+        </ul>
+        <div class="notice notice-error">
+          <div class="notice-content"><strong>تجنّب التشابه:</strong> اكتب توثيقك بكلماتك من السيناريو الذي أمامك، ولا تنسخ من زميل. لا عقوبة على التعديل قبل الإرسال.</div>
+        </div>
+
+        <h3>خامسًا: الحضور (Attendance)</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>الرمز</th><th>المعنى</th></tr></thead>
+            <tbody>
+              <tr><td class="num">P</td><td>Present — حاضر</td></tr>
+              <tr><td class="num">X</td><td>Absent — غائب</td></tr>
+              <tr><td class="num">E</td><td>Excused — غياب بعذر</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>تُحسب لك نسبة حضور ودرجة من 5، ويرتبط عدد الغيابات بمستوى إنذار (ملاحظة/إنذار أول/إنذار نهائي). تظهر لك لوحة «My Attendance» الخاصة بأسبوعك ودوريتك فقط.</p>
+      </section>
+
+      <!-- ========================================
+           SECTION 16: جدول العمل الأسبوعي المقترح
+           ======================================== -->
+      <section id="workflow" aria-labelledby="workflow-title">
+        <h2 id="workflow-title">16. جدول العمل الأسبوعي المقترح (روتين الطالب)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>المرحلة</th><th>ما تفعله</th><th>المخرج</th></tr></thead>
+            <tbody>
+              <tr><td>قبل المحاضرة</td><td>راجع تشريح/فسيولوجيا الحالة والمراجع</td><td>فهم مبدئي للسيناريو</td></tr>
+              <tr><td>في الجناح</td><td>اجمع البيانات: الشكوى، العلامات الحيوية، القياسات، التحاليل</td><td>بيانات خام موثّقة</td></tr>
+              <tr><td>على المنصة</td><td>افتح أسبوعك، املأ الأقسام 1 إلى 11، وافحص كل قسم فور اكتماله</td><td>أقسام مقفلة</td></tr>
+              <tr><td>قبل التسليم</td><td>راجع التقرير، وراجع تفسير كل قيمة، وابنِ خطة الرعاية</td><td>تقرير مكتمل</td></tr>
+              <tr><td>التسليم</td><td>صدّر ملف التسليم دون اتصال وسلّمه للمشرف</td><td>ملف تقرير مُسلَّم</td></tr>
+              <tr><td>بعد المراجعة</td><td>افتح «View report» واقرأ ملاحظات المشرف</td><td>تحسين الأداء القادم</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>أخطاء شائعة وكيف تتجنّبها</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>الخطأ</th><th>النتيجة</th><th>التصحيح</th></tr></thead>
+            <tbody>
+              <tr><td>فحص قسم قياسي دون تفسير القيم</td><td>رفض الفحص وتنبيه</td><td>صنّف كل قيمة (أقل/ضمن/أعلى) قبل الفحص</td></tr>
+              <tr><td>اختيار خيار إضافي في سؤال متعدّد</td><td>خسارة درجة البند</td><td>اختر ما يطلبه السؤال بالضبط</td></tr>
+              <tr><td>نسخ توثيق زميل</td><td>تجميد الدرجة ثم صفر</td><td>اكتب بكلماتك من سيناريوك</td></tr>
+              <tr><td>إهمال قسم ثقيل الوزن</td><td>انخفاض حاد في الدرجة</td><td>وزّع الجهد حسب الأوزان</td></tr>
+              <tr><td>محاولة فتح أسبوع غير مُخصّص</td><td>رسالة «locked»</td><td>أنجز أسبوعك الحالي ثم انتقل</td></tr>
+              <tr><td>إدخال وحدة وزن خاطئة</td><td>تفسير خاطئ للنطاق</td><td>تأكّد من الوحدة (غرام/كغم)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>قائمة تحقّق قبل التسليم</h3>
+        <div class="checklist" data-list-id="pre-submit">
+          <li><input type="checkbox" id="check1"><label for="check1">كل الأقسام الأحد عشر مقفلة.</label></li>
+          <li><input type="checkbox" id="check2"><label for="check2">كل قيمة مُقاسة مصنّفة تفسيريًّا.</label></li>
+          <li><input type="checkbox" id="check3"><label for="check3">خطتا الرعاية مكتملتان (سبب + دليل + هدف + تدخلات + تقييم).</label></li>
+          <li><input type="checkbox" id="check4"><label for="check4">بيانات التعريف طابقية للسيناريو.</label></li>
+          <li><input type="checkbox" id="check5"><label for="check5">راجعت التقرير النهائي والأشرطة.</label></li>
+          <li><input type="checkbox" id="check6"><label for="check6">مرّرت الفحص الذاتي للتأكد من الفهم.</label></li>
+          <li><input type="checkbox" id="check7"><label for="check7">حفظت ملف التسليم دون اتصال.</label></li>
+          <li><input type="checkbox" id="check8"><label for="check8">سلّمت الملف لمشرفي.</label></li>
+        </div>
+      </section>
+
+      <!-- ========================================
+           SECTION 17: جدول المصطلحات
+           ======================================== -->
+      <section id="terms" aria-labelledby="terms-title">
+        <h2 id="terms-title">17. جدول المصطلحات (المقابل الإنجليزي لواجهة المنصة)</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>العربية</th><th>English</th></tr></thead>
+            <tbody>
+              <tr><td>المعلومات التعريفية</td><td>Identifying Information</td></tr>
+              <tr><td>الشكوى الرئيسية</td><td>Chief Complaint</td></tr>
+              <tr><td>العلامات الحيوية</td><td>Vital Signs</td></tr>
+              <tr><td>القياسات الجسمية</td><td>Anthropometrics</td></tr>
+              <tr><td>تاريخ المرض الحالي</td><td>History of Present Illness</td></tr>
+              <tr><td>التاريخ المرضي السابق</td><td>Past History</td></tr>
+              <tr><td>تعزيز الصحة</td><td>Health Promotion (A–E)</td></tr>
+              <tr><td>الأدوية الحالية</td><td>Current Medication</td></tr>
+              <tr><td>الفحص السريري</td><td>Physical Examination</td></tr>
+              <tr><td>التحاليل والنتائج التشخيصية</td><td>Laboratory & Diagnostic Findings</td></tr>
+              <tr><td>خطة الرعاية التمريضية</td><td>Nursing Care Plan</td></tr>
+              <tr><td>فحص القسم والتقييم</td><td>Check section & score</td></tr>
+              <tr><td>التقرير النهائي</td><td>Final report</td></tr>
+              <tr><td>الفحص الذاتي</td><td>Case Self-Check</td></tr>
+              <tr><td>التسليم دون اتصال</td><td>Export for offline submission (file)</td></tr>
+              <tr><td>مقفل</td><td>Locked</td></tr>
+              <tr><td>نطاق مرجعي</td><td>Reference range</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="site-footer" role="contentinfo">
+        <hr class="section-divider">
+        <p>ورشة تدريب لطلبة التمريض — منصة التدريب السريري للأطفال. أُعدّت هذه الورشة حصرًا من النسخة العاملة من المنصة: كل صورة ورقم وقاعدة فيها مطابق لما ينفّذه النظام فعليًّا.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tocList = document.getElementById('tocList');
+      const sections = document.querySelectorAll('main section[id]');
+      const tocHtml = Array.from(sections).map((sec) => {
+        const title = sec.querySelector('h2')?.textContent || sec.id;
+        const id = sec.id;
+        return `<li><a href="#${id}">${title}</a></li>`;
+      }).join('');
+      tocList.innerHTML = tocHtml;
+
+      const tocLinks = tocList.querySelectorAll('a');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            tocLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+          }
+        });
+      }, { rootMargin: '-100px 0px -66% 0px', threshold: 0 });
+      sections.forEach(s => observer.observe(s));
+    });
+  </script>
+</body>
+</html>
